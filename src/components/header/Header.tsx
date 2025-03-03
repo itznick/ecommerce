@@ -1,4 +1,4 @@
-import { Bell, Search, ShoppingBag, ShoppingCart } from "lucide-react";
+import { Search, ShoppingBag, ShoppingCart } from "lucide-react";
 import { Input } from "../ui/input";
 import { NavLink } from "react-router-dom";
 import {
@@ -8,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import { SidebarTrigger } from "../ui/sidebar";
+import Notification from "../notification/Notification";
 
 const Header = () => {
   return (
@@ -35,15 +36,13 @@ const Header = () => {
           />
         </div>
         <div className="flex items-center gap-6">
+          <Notification />
           <NavLink to="/cart">
-            <Bell className="hover:text-orange-500 cursor-pointer w-6 h-6" />
-          </NavLink>
-          <NavLink to="/notifications">
             <ShoppingCart className="hover:text-orange-500 cursor-pointer w-6 h-6" />
           </NavLink>
           <div className="bg-black text-white rounded-md px-4 py-2 text-sm">
             <SignedOut>
-              <SignInButton/>
+              <SignInButton />
             </SignedOut>
           </div>
           <SignedIn>
