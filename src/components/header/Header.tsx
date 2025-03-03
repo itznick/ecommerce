@@ -7,10 +7,17 @@ import {
   SignInButton,
   UserButton,
 } from "@clerk/clerk-react";
+import { SidebarTrigger } from "../ui/sidebar";
 
 const Header = () => {
   return (
-    <header className="bg-white fixed top-0 left-0 z-40 w-full h-16 flex items-center shadow-md">
+    <header className="bg-white fixed top-0 left-0 z-40 w-full h-16 flex items-center justify-center shadow-md">
+      <div>
+        <SidebarTrigger
+          size="lg"
+          className="text-black h-10 w-10 ml-3 p-2 border"
+        />
+      </div>
       <nav className="flex justify-between items-center w-[min(100%-6rem)] max-w-[1380px] mx-auto h-[70%]">
         <NavLink
           to="/"
@@ -36,7 +43,7 @@ const Header = () => {
           </NavLink>
           <div className="bg-black text-white rounded-md px-4 py-2 text-sm">
             <SignedOut>
-              <SignInButton />
+              <SignInButton/>
             </SignedOut>
           </div>
           <SignedIn>

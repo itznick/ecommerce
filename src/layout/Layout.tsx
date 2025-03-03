@@ -1,22 +1,21 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/header/Header";
 import Sidebar from "../components/sidebar/Sidebar";
-import { SidebarProvider, SidebarTrigger } from "../components/ui/sidebar";
+import { SidebarProvider } from "../components/ui/sidebar";
 
 const Layout = () => {
   return (
-    <div className="h-screen flex flex-col">
-      <Header />
-      <div className="flex flex-1 pt-16">
-        <SidebarProvider>
+    <SidebarProvider>
+      <div className="h-screen flex flex-col">
+        <Header />
+        <div className="flex flex-1 pt-16 mt-2">
           <Sidebar />
-          <main className="flex-1 p-4">
-            <SidebarTrigger />
+          <main className="flex-1">
             <Outlet />
           </main>
-        </SidebarProvider>
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 

@@ -14,7 +14,7 @@ import { categories } from "../../data/categories";
 const Sidebar = () => {
   return (
     <AppSidebar
-      className="h-[calc(100vh-4rem)] top-16"
+      className="h-[calc(100vh-4rem)] top-18"
       variant="floating"
       collapsible="icon"
     >
