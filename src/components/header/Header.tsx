@@ -1,6 +1,12 @@
 import { Bell, Search, ShoppingBag, ShoppingCart } from "lucide-react";
 import { Input } from "../ui/input";
 import { NavLink } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Header = () => {
   return (
@@ -28,6 +34,14 @@ const Header = () => {
           <NavLink to="/notifications">
             <ShoppingCart className="hover:text-orange-500 cursor-pointer w-6 h-6" />
           </NavLink>
+          <div className="bg-black text-white rounded-md px-4 py-2 text-sm">
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+          </div>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </div>
       </nav>
     </header>
