@@ -4,7 +4,6 @@ const Home = () => {
   return (
     <div className="flex items-center justify-center">
       <Banner />
-      
     </div>
   );
 };
