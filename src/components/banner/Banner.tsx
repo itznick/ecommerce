@@ -21,7 +21,7 @@ const Banner = () => {
         {banners.map((banner, index) => (
           <CarouselItem key={index} className="basis-full">
             <div className="px-2">
-              <Card className="h-44 max-h-96 flex justify-center">
+              <Card className="h-full max-h-96 flex justify-center">
                 <Img
                   src={[banner.url]}
                   alt={banner.title}

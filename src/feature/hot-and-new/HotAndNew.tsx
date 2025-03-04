@@ -18,7 +18,7 @@ const HotAndNew = () => {
   });
 
   return (
-    <div className="flex-1 px-2 mt-6 pr-5 h-96">
+    <div className="flex-1 px-2 pr-5 h-96">
       <div className="flex items-center gap-2 mb-2">
         <Flame className="h-6 w-6 text-orange-500" />
         <h2 className="text-xl font-semibold text-gray-800">Hot & New</h2>
