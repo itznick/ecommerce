@@ -6,11 +6,14 @@ import {
   SignedOut,
   SignInButton,
   UserButton,
+  useUser,
 } from "@clerk/clerk-react";
 import { SidebarTrigger } from "../ui/sidebar";
 import Notification from "../notification/Notification";
 
 const Header = () => {
+  const { isSignedIn } = useUser();
+
   return (
     <header className="bg-white fixed top-0 left-0 z-40 w-full h-16 flex items-center justify-center shadow-md">
       <div>
@@ -40,14 +43,18 @@ const Header = () => {
           <NavLink to="/cart">
             <ShoppingCart className="hover:text-orange-500 cursor-pointer w-6 h-6" />
           </NavLink>
-          <div className="bg-black text-white rounded-md px-4 py-2 text-sm">
-            <SignedOut>
-              <SignInButton />
-            </SignedOut>
-          </div>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+
+          {isSignedIn ? (
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          ) : (
+            <div className="bg-orange-500 text-white rounded-md px-4 py-2 text-sm">
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+            </div>
+          )}
         </div>
       </nav>
     </header>

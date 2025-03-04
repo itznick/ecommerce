@@ -8,9 +8,9 @@ const Layout = () => {
     <SidebarProvider>
       <div className="h-screen flex flex-col">
         <Header />
-        <div className="flex flex-1 pt-16 mt-2">
+        <div className="flex flex-1 mt-20">
           <Sidebar />
-          <main className="flex-1">
+          <main className="flex-1 px-2">
             <Outlet />
           </main>
         </div>
