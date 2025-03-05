@@ -7,30 +7,44 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "../../components/ui/sidebar";
-
+import { SidebarTrigger } from "../ui/sidebar";
 import { categories } from "../../data/categories";
 
 const Sidebar = () => {
+  const { state, open } = useSidebar();
+
   return (
     <AppSidebar
-      className="h-[calc(100vh-4rem)] top-18"
+      className="h-[calc(100vh-4rem)] top-20"
       variant="floating"
       collapsible="icon"
     >
+      {state === "expanded" && open === true ? (
+        <SidebarTrigger className="absolute z-50 w-10 h-10 text-black border right-4 top-5" />
+      ) : (
+        <SidebarTrigger className="w-10 h-10 mt-2 ml-1 text-black border" />
+      )}
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-xl mt-2 text-black">
-            Categories
-          </SidebarGroupLabel>
-          <SidebarGroupContent className="mt-2">
+          {state === "expanded" && open === true ? (
+            <SidebarGroupLabel className="mt-2 text-xl text-black">
+              Categories
+            </SidebarGroupLabel>
+          ) : (
+            <SidebarGroupLabel className="hidden">
+              Categories
+            </SidebarGroupLabel>
+          )}
+          <SidebarGroupContent className="mt-4">
             <SidebarMenu>
               {categories.map((category) => (
                 <SidebarMenuItem key={category.title}>
                   <SidebarMenuButton asChild>
                     <a href={category.url}>
-                      <category.icon className="w-8 h-8" />
-                      <span className="text-base">{category.title}</span>
+                      <category.icon className="w-12 h-12" />
+                      <span className="text-xl">{category.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

@@ -18,7 +18,7 @@ const HotAndNew = () => {
   });
 
   return (
-    <div className="flex-1 px-2 pr-5 h-96">
+    <div className="flex-1 px-2 py-2 pr-5 h-96">
       <div className="flex items-center gap-2 mb-2">
         <Flame className="w-6 h-6 text-orange-500" />
         <h2 className="text-xl font-semibold text-gray-800">Hot & New</h2>
@@ -57,11 +57,11 @@ const HotAndNew = () => {
                 alt={product.title}
                 className="object-contain w-full h-full p-2 m-1 transition duration-300 border rounded-l shadow-md cursor-pointer hover:scale-105 false"
               />
-              <span className="block px-2 py-2 overflow-hidden font-medium whitespace-nowrap text-ellipsis">
+              <span className="block px-2 py-2 overflow-hidden text-lg font-medium whitespace-nowrap text-ellipsis">
                 {product.title}
               </span>
               <div className="flex items-center gap-2 px-2">
-                <span className="text-sm line-through">{product.price}</span>
+                <span className="text-sm font-medium line-through">{product.price}</span>
                 <span className="text-2xl font-semibold ">
                   <span className="text-2xl text-green-400">$</span>
                   {product.price}

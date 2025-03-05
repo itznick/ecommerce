@@ -11,7 +11,7 @@ const BrandGrid = () => {
               alt={brand.name}
               height={80}
               width={80}
-              className="object-contain"
+              className="object-contain cursor-grab"
             />
           </div>
         ))}
