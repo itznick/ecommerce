@@ -33,3 +33,15 @@ export const fetchProductByCategory = async (category: string) => {
     throw error;
   }
 };
+
+export const fetchProductByCategoryDesc = async (category: string) => {
+  try {
+    const response = await api.get(
+      `products/category?type=${category}&sort=desc`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching products for category: ${category}`, error);
+    throw error;
+  }
+};

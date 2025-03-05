@@ -1,12 +1,12 @@
-import ProductGrid from "./ProductGrid";
+import ProductGrid from "./SquareGrid";
 import { fetchProductByCategory } from "../../services/api";
 import { useQuery } from "@tanstack/react-query";
 
-interface ProductGridContainerProps {
+interface SquareGridContainerProps {
   category: string;
 }
 
-const ProductGridContainer: React.FC<ProductGridContainerProps> = ({
+const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
   category,
 }) => {
   const { data, error, isLoading } = useQuery({
@@ -23,10 +23,8 @@ const ProductGridContainer: React.FC<ProductGridContainerProps> = ({
     : [];
 
   return (
-    <div className="p-4 rounded-md border-2 capitalize">
-          <span className="text-xl font-semibold text-gray-800">
-              {category}
-          </span>
+    <div className="p-4 capitalize border-2 rounded-md">
+      <span className="text-xl font-semibold text-gray-800">{category}</span>
       <div className="grid grid-cols-2 gap-2">
         {products.map((product: { id: number; image: string }) => (
           <ProductGrid key={product.id} image={product.image} />
@@ -36,4 +34,4 @@ const ProductGridContainer: React.FC<ProductGridContainerProps> = ({
   );
 };
 
-export default ProductGridContainer;
+export default SquareGridContainer;

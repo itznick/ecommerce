@@ -15,23 +15,23 @@ const Header = () => {
   const { isSignedIn } = useUser();
 
   return (
-    <header className="bg-white fixed top-0 left-0 z-40 w-full h-16 flex items-center justify-center shadow-md">
+    <header className="fixed top-0 left-0 z-40 flex items-center justify-center w-full h-16 bg-white shadow-md">
       <div>
         <SidebarTrigger
           size="lg"
-          className="text-black h-10 w-10 ml-3 p-2 border"
+          className="w-10 h-10 p-2 ml-3 text-black border"
         />
       </div>
       <nav className="flex justify-between items-center w-[min(100%-6rem)] max-w-[1380px] mx-auto h-[70%]">
         <NavLink
           to="/"
-          className="flex justify-center items-center gap-2 text-sm mb-2"
+          className="flex items-center justify-center gap-2 mb-2 text-sm"
         >
           <ShoppingBag size={28} fill="#ff6900" />
           <span className="text-lg font-medium ">EzCommerce</span>
         </NavLink>
         <div className="w-[55%] relative flex items-center mx-6">
-          <Search className="absolute left-3 text-black w-6 h-6" />
+          <Search className="absolute w-6 h-6 text-black left-3" />
           <Input
             type="search"
             placeholder="Search the products"
@@ -41,7 +41,7 @@ const Header = () => {
         <div className="flex items-center gap-6">
           <Notification />
           <NavLink to="/cart">
-            <ShoppingCart className="hover:text-orange-500 cursor-pointer w-6 h-6" />
+            <ShoppingCart className="w-6 h-6 cursor-pointer hover:text-orange-500" />
           </NavLink>
 
           {isSignedIn ? (
@@ -49,7 +49,7 @@ const Header = () => {
               <UserButton />
             </SignedIn>
           ) : (
-            <div className="bg-orange-500 text-white rounded-md px-4 py-2 text-sm">
+            <div className="px-4 py-2 text-sm text-white bg-orange-500 rounded-md">
               <SignedOut>
                 <SignInButton />
               </SignedOut>
