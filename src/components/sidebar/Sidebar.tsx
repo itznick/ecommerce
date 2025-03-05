@@ -11,6 +11,7 @@ import {
 } from "../../components/ui/sidebar";
 import { SidebarTrigger } from "../ui/sidebar";
 import { categories } from "../../data/categories";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const { state, open } = useSidebar();
@@ -33,19 +34,17 @@ const Sidebar = () => {
               Categories
             </SidebarGroupLabel>
           ) : (
-            <SidebarGroupLabel className="hidden">
-              Categories
-            </SidebarGroupLabel>
+            <SidebarGroupLabel className="hidden">Categories</SidebarGroupLabel>
           )}
           <SidebarGroupContent className="mt-4">
             <SidebarMenu>
               {categories.map((category) => (
                 <SidebarMenuItem key={category.title}>
                   <SidebarMenuButton asChild>
-                    <a href={category.url}>
+                    <NavLink to={`/category/${category.title}`}>
                       <category.icon className="w-12 h-12" />
-                      <span className="text-xl">{category.title}</span>
-                    </a>
+                      <span className="text-xl capitalize">{category.title}</span>
+                    </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

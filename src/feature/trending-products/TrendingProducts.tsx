@@ -11,11 +11,10 @@ const TrendingProducts = () => {
         </h2>
       </div>
       <div className="grid w-full h-full grid-cols-1">
-        {/* <span className="px-4 text-2xl">Mobile</span> */}
-        <LineGrid category="mobile" />
-        <LineGrid category="tv" />
-        <LineGrid category="laptop" />
-        <LineGrid category="appliances" />
+        <LineGrid category="mobile" limit={4} />
+        <LineGrid category="tv" limit={4} />
+        <LineGrid category="laptop" limit={4} />
+        <LineGrid category="appliances" limit={4} />
       </div>
     </div>
   );

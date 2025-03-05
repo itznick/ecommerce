@@ -10,37 +10,37 @@ import {
 
 export const categories = [
   {
-    title: "All",
+    title: "all",
     url: "#",
     icon: Home,
   },
   {
-    title: "TV",
+    title: "tv",
     url: "#",
     icon: Tv,
   },
   {
-    title: "Audio",
+    title: "audio",
     url: "#",
     icon: Headphones,
   },
   {
-    title: "Laptop",
+    title: "laptop",
     url: "#",
     icon: Laptop,
   },
   {
-    title: "Mobile",
+    title: "mobile",
     url: "#",
     icon: Smartphone,
   },
   {
-    title: "Gaming",
+    title: "gaming",
     url: "#",
     icon: Gamepad2,
   },
   {
-    title: "Appliances",
+    title: "appliances",
     url: "#",
     icon: Refrigerator,
   },

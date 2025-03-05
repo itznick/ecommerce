@@ -1,4 +1,4 @@
-import ProductGrid from "./SquareGrid";
+import SquareGrid from "./SquareGrid";
 import { fetchProductByCategory } from "../../services/api";
 import { useQuery } from "@tanstack/react-query";
 
@@ -27,7 +27,7 @@ const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
       <span className="text-xl font-semibold text-gray-800">{category}</span>
       <div className="grid grid-cols-2 gap-2">
         {products.map((product: { id: number; image: string }) => (
-          <ProductGrid key={product.id} image={product.image} />
+          <SquareGrid key={product.id} image={product.image} />
         ))}
       </div>
     </div>
