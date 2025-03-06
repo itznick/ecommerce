@@ -26,9 +26,23 @@ const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
     <div className="p-4 capitalize border-2 rounded-md">
       <span className="text-xl font-semibold text-gray-800">{category}</span>
       <div className="grid grid-cols-2 gap-2">
-        {products.map((product: { id: number; image: string }) => (
-          <SquareGrid key={product.id} image={product.image} />
-        ))}
+        {products.map(
+          (product: {
+            id: number;
+            title: string;
+            image: string;
+            price: number;
+            discount: number;
+          }) => (
+            <SquareGrid
+              key={product.id}
+              title={product.title}
+              image={product.image}
+              price={product.price}
+              discount={product.discount}
+            />
+          )
+        )}
       </div>
     </div>
   );

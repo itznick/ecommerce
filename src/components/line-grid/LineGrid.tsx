@@ -3,6 +3,7 @@ import {
   fetchProductByCategoryDesc,
   fetchProductsByPage,
 } from "../../services/api";
+import { calculateDiscount } from "../../utils/discount";
 
 interface LineGridProps {
   category: string;
@@ -32,21 +33,41 @@ const LineGrid: React.FC<LineGridProps> = ({ category, limit }) => {
 
   return (
     <div className="grid grid-cols-4 p-2">
-      {products.map((product: { id: number; title: string; image: string }) => (
-        <div
-          key={product.id}
-          className="flex flex-col items-center w-full transition duration-300 hover:scale-105"
-        >
-          <img
-            src={product.image}
-            alt={product.title}
-            className="object-contain w-full h-full p-2 cursor-pointer"
-          />
-          <span className="block w-full px-4 font-medium text-center truncate">
-            {product.title}
-          </span>
-        </div>
-      ))}
+      {products.map(
+        (product: {
+          id: number;
+          title: string;
+          image: string;
+          price: number;
+          discount: number;
+        }) => (
+          <div
+            key={product.id}
+            className="flex flex-col gap-3 items-center w-full transition duration-300 hover:scale-105"
+          >
+            <img
+              src={product.image}
+              alt={product.title}
+              className="object-contain w-full h-full p-2 cursor-pointer hover:shadow-md"
+            />
+            <span className="block w-full px-4 font-medium text-center truncate">
+              {product.title}
+            </span>
+            <div className="flex items-center gap-2 px-2">
+              <span className="text-sm font-medium line-through">
+                {product.price}
+              </span>
+              <span className="text-2xl font-semibold ">
+                <span className="text-2xl text-green-400">$</span>
+                {Math.round(calculateDiscount(product.price, product.discount))}
+              </span>
+              <span className="rounded-[50%] bg-red-600 p-0.5 text-xs text-white ">
+                {product.discount}%
+              </span>
+            </div>
+          </div>
+        )
+      )}
     </div>
   );
 };

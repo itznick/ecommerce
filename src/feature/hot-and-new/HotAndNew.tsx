@@ -1,6 +1,7 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { Flame } from "lucide-react";
 import { fetchLimitedProducts } from "../../services/api";
+import { calculateDiscount } from "../../utils/discount";
 
 const LIMIT = 4;
 
@@ -61,10 +62,15 @@ const HotAndNew = () => {
                 {product.title}
               </span>
               <div className="flex items-center gap-2 px-2">
-                <span className="text-sm font-medium line-through">{product.price}</span>
+                <span className="text-sm font-medium line-through">
+                  {product.price}
+                </span>
                 <span className="text-2xl font-semibold ">
                   <span className="text-2xl text-green-400">$</span>
-                  {product.price}
+                  {/* {product.price} */}
+                  {Math.round(
+                    calculateDiscount(product.price, product.discount)
+                  )}
                 </span>
                 <span className="rounded-[50%] bg-red-600 p-0.5 text-xs text-white ">
                   {product.discount}%
