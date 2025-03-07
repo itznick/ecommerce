@@ -16,11 +16,12 @@ const Banner = () => {
         align: "start",
         loop: true,
       }}
+      className="mt-10"
     >
-      <CarouselContent className="w-full">
+      <CarouselContent className="">
         {banners.map((banner, index) => (
           <CarouselItem key={index} className="basis-full">
-            <div className="px-2">
+            <div className="px-1">
               <Card className="h-full max-h-96 flex justify-center">
                 <Img
                   src={[banner.url]}
