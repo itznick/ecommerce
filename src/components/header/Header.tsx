@@ -19,7 +19,7 @@ const Header = () => {
         <div className="flex items-center justify-center">
           <NavLink
             to="/"
-            className="flex items-center justify-center gap-2 mb-2 text-sm"
+            className="flex items-center justify-center gap-2"
           >
             <ShoppingBag className="h-9 w-9" fill="#ff6900" />
             <span className="text-2xl font-medium ">EzCommerce</span>
