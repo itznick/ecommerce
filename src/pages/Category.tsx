@@ -10,8 +10,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "../components/ui/pagination";
+import { useState } from "react";
 
 const Category = () => {
+  const [page, setPage] = useState(1);
   const { type } = useParams<{ type: string }>();
   const categoryData = categories.find((cat) => cat.title === type);
 
@@ -26,21 +28,32 @@ const Category = () => {
         </h2>
       </div>
       <div className="grid w-full h-full grid-cols-1">
-        <LineGrid category={type || ""} />
-      
+        <LineGrid category={type || ""} page={page} />
+
         <Pagination className="p-4">
           <PaginationContent>
             <PaginationItem>
-              <PaginationPrevious />
+              <PaginationPrevious
+                onClick={page > 1 ? () => setPage((p) => p - 1) : undefined}
+                className={`${
+                  page === 1 ? "pointer-events-none opacity-50" : ""
+                } cursor-pointer`}
+              />
             </PaginationItem>
+
             <PaginationItem>
-              <PaginationLink>1</PaginationLink>
+              <PaginationLink>{page}</PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
             <PaginationItem>
-              <PaginationNext />
+              <PaginationNext
+                onClick={page < 3 ? () => setPage((p) => p + 1) : undefined}
+                className={`${
+                  page === 3 ? "pointer-events-none opacity-50" : ""
+                } cursor-pointer`}
+              />
             </PaginationItem>
           </PaginationContent>
         </Pagination>

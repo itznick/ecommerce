@@ -8,14 +8,15 @@ import SmallProductCard from "../card-variants/SmallProductCard";
 interface LineGridProps {
   category: string;
   limit?: number;
+  page: number;
 }
 
-const LineGrid: React.FC<LineGridProps> = ({ category, limit }) => {
+const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
   const { data, error, isLoading } = useQuery({
-    queryKey: ["categories", category],
+    queryKey: ["categories", category, page],
     queryFn: () =>
       category === "all"
-        ? fetchProductsByPage(1)
+        ? fetchProductsByPage(page)
         : fetchProductByCategoryDesc(category),
   });
 
