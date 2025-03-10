@@ -2,10 +2,13 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { Flame } from "lucide-react";
 import { fetchLimitedProducts } from "../../services/api";
 import { Skeleton } from "../../components/ui/skeleton";
-// import SmallProductCard from "../../components/card-variants/SmallProductCard";
 import MediumProductCard from "../../components/card-variants/MediumProductCard";
 
-const HotAndNew = ({ limit }) => {
+interface HotAndNewProps {
+  limit: number;
+}
+
+const HotAndNew: React.FC<HotAndNewProps> = ({ limit }) => {
   const {
     data = [],
     isLoading,
@@ -22,7 +25,9 @@ const HotAndNew = ({ limit }) => {
     <div className="mt-2 flex flex-col">
       <div className="flex items-center gap-2 bg-orange-500 rounded-md p-1 w-36">
         <Flame className="text-white" />
-        <h2 className="text-xl font-medium text-white text-center">Hot & New</h2>
+        <h2 className="text-xl font-medium text-white text-center">
+          Hot & New
+        </h2>
       </div>
       <div>
         {isLoading && !isError && (
@@ -50,6 +55,7 @@ const HotAndNew = ({ limit }) => {
             }) => (
               <MediumProductCard
                 key={product.id}
+                id={product.id}
                 title={product.title}
                 image={product.image}
                 price={product.price}

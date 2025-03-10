@@ -14,6 +14,16 @@ export const fetchAllProducts = async () => {
   }
 };
 
+export const fetchProductById = async (productId: number) => {
+  try {
+    const response = await api.get(`products/${productId}`);
+    return response.data.product;
+  } catch (error) {
+    console.error("Error fetching product by ID", error);
+    throw error;
+  }
+};
+
 export const fetchProductsByPage = async (page: number) => {
   try {
     const response = await api.get(`products?page=${page}`);

@@ -1,7 +1,12 @@
 import { calculateDiscount } from "../../utils/discount";
 import { Card, CardContent, CardHeader } from "../ui/card";
+import { AppDispatch } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../redux/slices/modalSlice";
+
 
 interface ProductCardProps {
+  id: number;
   title: string;
   image: string;
   price: number;
@@ -9,15 +14,20 @@ interface ProductCardProps {
 }
 
 const MediumProductCard: React.FC<ProductCardProps> = ({
+  id,
   title,
   image,
   price,
   discount,
 }) => {
-  console.log(title, image, price, discount);
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
-    <Card className="h-[300px] flex-1 rounded-md">
+    <Card
+      className="h-[300px] flex-1 rounded-md"
+      key={id}
+      onClick={() => dispatch(openModal(id))}
+    >
       <CardHeader className="flex-col items-center justify-center">
         <img
           src={image}

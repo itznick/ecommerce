@@ -42,6 +42,7 @@ const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
         }) => (
           <SmallProductCard
             key={product.id}
+            id={product.id}
             title={product.title}
             image={product.image}
             price={product.price}

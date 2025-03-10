@@ -11,6 +11,7 @@ import {
   PaginationPrevious,
 } from "../components/ui/pagination";
 import { useState } from "react";
+import ProductDetailModal from "../components/product-detail-modal/ProductDetailModal";
 
 const Category = () => {
   const [page, setPage] = useState(1);
@@ -29,6 +30,7 @@ const Category = () => {
       </div>
       <div className="grid w-full h-full grid-cols-1">
         <LineGrid category={type || ""} page={page} />
+        <ProductDetailModal />
 
         <Pagination className="p-4">
           <PaginationContent>
