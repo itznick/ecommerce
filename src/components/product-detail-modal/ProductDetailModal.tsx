@@ -9,7 +9,6 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
@@ -17,7 +16,6 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchProductById } from "../../services/api";
 import { calculateDiscount } from "../../utils/discount";
 import { Button } from "../ui/button";
-import { DialogClose } from "@radix-ui/react-dialog";
 
 const ProductDetailModal = () => {
   const dispatch = useDispatch<AppDispatch>();
