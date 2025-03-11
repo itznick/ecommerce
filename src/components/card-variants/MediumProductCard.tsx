@@ -4,7 +4,6 @@ import { AppDispatch } from "../../redux/store";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../redux/slices/modalSlice";
 
-
 interface ProductCardProps {
   id: number;
   title: string;
@@ -38,16 +37,22 @@ const MediumProductCard: React.FC<ProductCardProps> = ({
       <CardContent className=" w-full flex flex-col p-0 px-1 mt-3 justify-center">
         <span className="w-full truncate text-sm font-medium">{title}</span>
         <div className="flex items-center gap-2">
-          <span className="text-zinc-400 line-through text-sm">{price}</span>
+          {discount && (
+            <span className="text-zinc-400 line-through text-sm">{price}</span>
+          )}
           <div className="text-xl font-semibold">
             <span className="text-green-500">$</span>
-            {Math.round(calculateDiscount(price, discount))}
+            {Math.round(calculateDiscount(price, discount)) || price}
           </div>
           <div className="flex items-center gap-1">
-            <span className="bg-red-500 text-white text-[10px] h-5 w-5 rounded-full text-center flex justify-center items-center">
-              {discount}%
-            </span>
-            off
+            {discount && (
+              <div className="flex items-center">
+                <span className="bg-red-500 text-white text-[10px] p-2 h-5 w-5 rounded-full text-center flex justify-center items-center">
+                  {discount}%
+                </span>
+                off
+              </div>
+            )}
           </div>
         </div>
       </CardContent>

@@ -40,16 +40,22 @@ const SmallProductCard: React.FC<ProductCardProps> = ({
           {title}
         </span>
         <div className="flex items-center gap-2 px-2">
-          <span className="text-zinc-400 line-through text-sm">{price}</span>
+          {discount && (
+            <span className="text-zinc-400 line-through text-sm">{price}</span>
+          )}
           <div className="text-xl font-semibold">
             <span className="text-green-500">$</span>
-            {Math.round(calculateDiscount(price, discount))}
+            {Math.round(calculateDiscount(price, discount)) || price}
           </div>
           <div className="flex items-center gap-1">
-            <span className="bg-red-500 text-white text-[10px] h-5 w-5 rounded-full text-center flex justify-center items-center">
-              {discount}%
-            </span>
-            off
+            {discount && (
+              <div className="flex items-center">
+                <span className="bg-red-500 text-white text-[10px]  h-5 w-5 rounded-full text-center flex justify-center items-center">
+                  {discount}%
+                </span>
+                off
+              </div>
+            )}
           </div>
         </div>
       </CardContent>

@@ -74,18 +74,25 @@ const ProductDetailModal = () => {
           <div className="flex flex-col gap-2 px-8 w-full">
             <span className="font-medium text-xl">{data?.title}</span>
             <div className="flex items-center gap-2 px-2">
-              <span className="text-lg line-through text-zinc-400">
-                ${data?.price}
-              </span>
+              {data.discount && (
+                <span className="text-lg line-through text-zinc-400">
+                  ${data?.price}
+                </span>
+              )}
               <div className="text-3xl font-semibold">
                 <span className="text-green-500">$</span>
-                {Math.round(calculateDiscount(data?.price, data?.discount))}
+                {Math.round(calculateDiscount(data?.price, data?.discount)) ||
+                  data.price}
               </div>
               <div className="flex items-center gap-1">
-                <span className="bg-red-500 text-white text-[12px] p-[12px] h-5 w-5 rounded-full text-center flex justify-center items-center">
-                  {data?.discount}%
-                </span>
-                off
+                {data.discount && (
+                  <div className="flex items-center">
+                    <span className="bg-red-500 text-white text-[10px]  h-5 w-5 rounded-full text-center flex justify-center items-center">
+                      {data.discount}%
+                    </span>
+                    off
+                  </div>
+                )}
               </div>
             </div>
             <div className="flex gap-5 my-4 text-sm">
