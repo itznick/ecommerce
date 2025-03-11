@@ -9,18 +9,19 @@ import {
   useUser,
 } from "@clerk/clerk-react";
 import Notification from "../notification/Notification";
+import { Badge } from "../ui/badge";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 const Header = () => {
   const { isSignedIn } = useUser();
+  const cartItems = useSelector((state: RootState) => state.cart);
 
   return (
     <header className="fixed top-0 left-0 z-40 flex items-center justify-center w-full h-18 bg-white shadow-md">
       <nav className="flex justify-between items-center w-full mx-4 h-[70%]">
         <div className="flex items-center justify-center">
-          <NavLink
-            to="/"
-            className="flex items-center justify-center gap-2 mb-2 text-sm"
-          >
+          <NavLink to="/" className="flex items-center justify-center gap-2">
             <ShoppingBag className="h-9 w-9" fill="#ff6900" />
             <span className="text-2xl font-medium ">EzCommerce</span>
           </NavLink>
@@ -35,7 +36,15 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-6">
           <Notification />
-          <NavLink to="/cart">
+          <NavLink to="/cart" className="relative">
+            {cartItems.totalCount > 0 && (
+              <Badge
+                variant="destructive"
+                className="px-1 bg-red-500 w-5 rounded-full text-white text-xs flex items-center justify-center absolute -top-2 -right-2 pointer-events-none"
+              >
+                {cartItems.totalCount}
+              </Badge>
+            )}
             <ShoppingCart className="w-8 h-8 cursor-pointer hover:text-orange-500" />
           </NavLink>
 

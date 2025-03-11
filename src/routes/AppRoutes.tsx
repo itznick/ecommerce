@@ -3,6 +3,7 @@ import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
 import NotFound from "../components/not-found/NotFound";
+import Category from "../pages/Category";
 
 const AppRoutes = () => {
   return (
@@ -10,6 +11,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="category/:type" element={<Category />} />
         </Route>
         <Route path="*" element={<NotFound />} />
         <Route path="cart" element={<Cart />} />

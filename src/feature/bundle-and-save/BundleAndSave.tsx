@@ -3,12 +3,13 @@ import SquareGridContainer from "../../components/square-grid/SquareGridContaine
 
 const BundleAndSave = () => {
   return (
-    <div className="flex-1 px-4">
-      <div className="flex items-center gap-2 mb-4">
-        <Package className="w-6 h-6 text-orange-500" />
-        <h2 className="text-xl font-semibold text-gray-800">Bundle & Save</h2>
+    <div>
+      <div className="flex items-center gap-2 bg-orange-500 rounded-md p-1 w-44">
+        <Package className="text-white" />
+        <h2 className="text-xl font-medium text-white">Bundle & Save</h2>
       </div>
-      <div className="grid w-full h-full grid-cols-2 gap-4">
+
+      <div className="grid grid-cols-2 gap-4 mt-4">
         <SquareGridContainer category="laptop" />
         <SquareGridContainer category="gaming" />
         <SquareGridContainer category="audio" />
