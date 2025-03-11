@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../../redux/store";
+import { AppDispatch, RootState } from "../../redux/store";
 import {
   closeModal,
   selectModalId,
@@ -16,11 +16,17 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchProductById } from "../../services/api";
 import { calculateDiscount } from "../../utils/discount";
 import { Button } from "../ui/button";
+import { addToCart } from "../../redux/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
+import { ShoppingCart } from "lucide-react";
 
 const ProductDetailModal = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isOpen = useSelector(selectModalOpen);
   const productId = useSelector(selectModalId);
+  const navigate = useNavigate();
+
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["product", productId],
@@ -29,6 +35,8 @@ const ProductDetailModal = () => {
   });
 
   if (!isOpen) return null;
+
+  const isInCart = cartItems.some((item) => item.id === data?.id);
 
   return (
     <Dialog
@@ -63,7 +71,7 @@ const ProductDetailModal = () => {
 
         {!isLoading && !isError && data && (
           <div className="flex flex-col gap-2 px-8 w-full">
-            <span className="font-medium text-xl ">{data?.title}</span>
+            <span className="font-medium text-xl">{data?.title}</span>
             <div className="flex items-center gap-2 px-2">
               <span className="text-lg line-through text-zinc-400">
                 ${data?.price}
@@ -100,9 +108,26 @@ const ProductDetailModal = () => {
               </span>
             </div>
             <div className="mt-2">
-              <Button className="bg-orange-500 hover:bg-orange-700">
-                Add to Cart
-              </Button>
+              {isInCart ? (
+                <Button
+                  className="bg-green-500 hover:bg-green-700 cursor-pointer"
+                  onClick={() => {
+                    navigate("/cart");
+                    dispatch(closeModal());
+                  }}
+                >
+                  <ShoppingCart />
+                  Go to Cart
+                </Button>
+              ) : (
+                <Button
+                  className="bg-orange-500 hover:bg-orange-700 cursor-pointer"
+                  onClick={() => dispatch(addToCart(data))}
+                >
+                  <ShoppingCart />
+                  Add to Cart
+                </Button>
+              )}
             </div>
           </div>
         )}
@@ -110,5 +135,4 @@ const ProductDetailModal = () => {
     </Dialog>
   );
 };
-
 export default ProductDetailModal;
