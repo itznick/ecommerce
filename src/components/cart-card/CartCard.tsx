@@ -4,18 +4,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../redux/store";
 import { Button } from "../ui/button";
 import {
-  removeFromCart,
   incrementQuantity,
   decrementQuantity,
+  clearItemFromCart,
 } from "../../redux/slices/cartSlice";
+import { addNotification } from "../../redux/slices/notificationSlice";
 
 const CartCard = () => {
   const cartItem = useSelector((state: RootState) => state.cart);
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleRemoveItem = (itemId: number) => {
-    dispatch(removeFromCart({ id: itemId }));
+  const handleRemoveItem = (itemId: number, itemTitle: string) => {
+    dispatch(clearItemFromCart({ id: itemId }));
+    dispatch(
+      addNotification({
+        id: itemId,
+        title: itemTitle,
+        message: "Item removed from cart",
+        type: "removed",
+      })
+    );
   };
 
   const handleIncrement = (itemId: number) => {
@@ -82,7 +91,7 @@ const CartCard = () => {
                   <Button
                     variant={"destructive"}
                     className="h-6 cursor-pointer flex items-center justify-center hover:bg-red-700"
-                    onClick={() => handleRemoveItem(item.id)}
+                    onClick={() => handleRemoveItem(item.id, item.title)}
                   >
                     <Trash2 />
                     <span>Remove</span>

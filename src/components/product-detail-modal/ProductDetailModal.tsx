@@ -19,6 +19,7 @@ import { Button } from "../ui/button";
 import { addToCart } from "../../redux/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
+import { addNotification } from "../../redux/slices/notificationSlice";
 
 const ProductDetailModal = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -122,7 +123,17 @@ const ProductDetailModal = () => {
               ) : (
                 <Button
                   className="bg-orange-500 hover:bg-orange-700 cursor-pointer"
-                  onClick={() => dispatch(addToCart(data))}
+                  onClick={() => {
+                    dispatch(addToCart(data));
+                    dispatch(
+                      addNotification({
+                        id: data.id,
+                        title: data.title,
+                        message: "Added to cart successfully!",
+                        type: "added",
+                      })
+                    );
+                  }}
                 >
                   <ShoppingCart />
                   Add to Cart

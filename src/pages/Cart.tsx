@@ -27,7 +27,7 @@ const Cart = () => {
               Looks like you haven't added anything yet.
             </p>
             <button
-              className="mt-4 px-3 py-2 bg-orange-600 text-white rounded-lg flex items-center justify-between gap-2 hover:bg-orange-700 transition cursor-pointer"
+              className="mt-4 px-2 py-2 bg-orange-600 text-white rounded-lg flex items-center justify-between gap-2 hover:bg-orange-700 transition cursor-pointer"
               onClick={() => navigate("/")}
             >
               <MoveLeft />
