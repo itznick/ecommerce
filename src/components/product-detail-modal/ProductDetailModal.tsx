@@ -33,6 +33,7 @@ const ProductDetailModal = () => {
     queryKey: ["product", productId],
     queryFn: () => (productId !== null ? fetchProductById(productId) : null),
     enabled: productId !== null,
+    staleTime: 1000 * 60 * 5,
   });
 
   if (!isOpen) return null;

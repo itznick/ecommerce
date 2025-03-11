@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  ShoppingBag,
-} from "lucide-react";
+import { Facebook, Instagram, Twitter, ShoppingBag } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
@@ -62,8 +57,9 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      <div className="text-center text-gray-500 text-sm mt-10 border-t border-gray-700 pt-4">
+      <div className="text-center text-gray-500 text-sm mt-10 border-t border-gray-700 pt-4 flex flex-col">
         &copy; {new Date().getFullYear()} EzCommerce. All rights reserved.
+        <span> Made by Nikhil Bhamare</span>
       </div>
     </footer>
   );

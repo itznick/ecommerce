@@ -16,16 +16,6 @@ const Layout = () => {
         </div>
       </div>
     </SidebarProvider>
-    // <main className="h-screen flex flex-col justify-between">
-    //   <Header />
-    //   <div className="flex-1 flex justify-between">
-    //     <SidebarProvider>
-    //       <Sidebar />
-    //     </SidebarProvider>
-    //     <Outlet />
-    //   </div>
-    //   <Footer />
-    // </main>
   );
 };
 

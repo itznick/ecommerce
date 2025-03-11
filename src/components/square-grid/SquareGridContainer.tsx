@@ -13,6 +13,7 @@ const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
   const { data, error, isLoading, isPending, isError } = useQuery({
     queryKey: ["categories", category],
     queryFn: () => fetchProductByCategory(category),
+    staleTime: 1000 * 60 * 5,
   });
 
   if (isLoading || isPending)

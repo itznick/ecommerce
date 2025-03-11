@@ -32,33 +32,35 @@ const Category = () => {
         <LineGrid category={type || ""} page={page} />
         <ProductDetailModal />
 
-        <Pagination className="p-4">
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                onClick={page > 1 ? () => setPage((p) => p - 1) : undefined}
-                className={`${
-                  page === 1 ? "pointer-events-none opacity-50" : ""
-                } cursor-pointer`}
-              />
-            </PaginationItem>
+        {categoryData?.title === "all" && (
+          <Pagination className="p-4">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={page > 1 ? () => setPage((p) => p - 1) : undefined}
+                  className={`${
+                    page === 1 ? "pointer-events-none opacity-50" : ""
+                  } cursor-pointer`}
+                />
+              </PaginationItem>
 
-            <PaginationItem>
-              <PaginationLink>{page}</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationNext
-                onClick={page < 3 ? () => setPage((p) => p + 1) : undefined}
-                className={`${
-                  page === 3 ? "pointer-events-none opacity-50" : ""
-                } cursor-pointer`}
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
+              <PaginationItem>
+                <PaginationLink>{page}</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationEllipsis />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext
+                  onClick={page < 3 ? () => setPage((p) => p + 1) : undefined}
+                  className={`${
+                    page === 3 ? "pointer-events-none opacity-50" : ""
+                  } cursor-pointer`}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        )}
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
       category === "all"
         ? fetchProductsByPage(page)
         : fetchProductByCategoryDesc(category),
+    staleTime: 1000 * 60 * 5,
   });
 
   if (isLoading) return <p className="text-center text-gray-600">Loading...</p>;

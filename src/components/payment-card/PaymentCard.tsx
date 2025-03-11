@@ -6,19 +6,16 @@ import { RootState } from "../../redux/store";
 const PaymentCard = () => {
   const cart = useSelector((state: RootState) => state.cart);
 
-  // Total price (without discount)
   const totalPrice = cart.items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
 
-  // Total discount amount in dollars
   const totalDiscount = cart.items.reduce(
     (acc, item) => acc + ((item.price * item.discount) / 100) * item.quantity,
     0
   );
 
-  // Subtotal after applying discount
   const subtotal = totalPrice - totalDiscount;
 
   return (

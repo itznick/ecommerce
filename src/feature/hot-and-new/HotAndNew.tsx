@@ -19,6 +19,7 @@ const HotAndNew: React.FC<HotAndNewProps> = ({ limit }) => {
     queryFn: () => fetchLimitedProducts(limit),
     retry: 1,
     placeholderData: keepPreviousData,
+    staleTime: 1000 * 60 * 5,
   });
 
   return (
