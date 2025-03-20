@@ -6,7 +6,7 @@ import { SidebarProvider } from "../components/ui/sidebar";
 const Layout = () => {
   return (
     <SidebarProvider>
-      <div className="flex flex-col h-screen justify-between">
+      <div className="flex flex-col h-screen max-sm:w-full justify-between">
         <Header />
         <div className="flex flex-1 mt-20">
           <Sidebar />
