@@ -41,7 +41,7 @@ const Header = () => {
             className="pl-12 pr-10 py-2 w-full border-2 text-base placeholder:text-base font-medium placeholder:text-gray-500 placeholder:font-normal rounded-md focus-visible:border-[#ff9e01] selection:bg-[#3367d1] focus-visible:ring-0 sm:placeholder:text-lg md:h-11"
           />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6 md:gap-4">
           <Search
             className="w-6 h-6 cursor-pointer hover:text-orange-500 sm:hidden"
             onClick={() => setIsVisible(!isVisible)}
