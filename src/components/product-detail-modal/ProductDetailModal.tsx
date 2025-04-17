@@ -45,7 +45,7 @@ const ProductDetailModal = () => {
       open={isOpen}
       onOpenChange={(open) => !open && dispatch(closeModal())}
     >
-      <DialogContent className="flex justify-between items-center w-[70vw] z-50 h-[80vh]">
+      <DialogContent className="flex md:justify-between items-center w-[70vw] z-50 h-[80vh] max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:max-w-[100%] max-lg:rounded-none max-lg:overflow-scroll ">
         <DialogHeader>
           {isLoading && (
             <DialogTitle className="text-lg text-center">
@@ -63,7 +63,7 @@ const ProductDetailModal = () => {
                 <img
                   src={data?.image}
                   alt={data?.title}
-                  className="object-contain w-[900px] h-[450px] text-sm"
+                  className="object-contain w-[900px] h-[450px] text-sm max-lg:w-[500px] max-lg:h-[300px] lg:w-[600px] lg:h-[300px]"
                 />
               </DialogTitle>
               <DialogDescription></DialogDescription>
@@ -72,9 +72,11 @@ const ProductDetailModal = () => {
         </DialogHeader>
 
         {!isLoading && !isError && data && (
-          <div className="flex flex-col gap-2 px-8 w-full">
-            <span className="font-medium text-xl">{data?.title}</span>
-            <div className="flex items-center gap-2 px-2">
+          <div className="flex flex-col gap-2 px-8 w-full max-lg:px-0">
+            <span className="font-medium text-xl max-lg:text-lg lg:text-base">
+              {data?.title}
+            </span>
+            <div className="flex items-center gap-2 px-2 max-lg:px-0">
               {data.discount && (
                 <span className="text-lg line-through text-zinc-400">
                   ${data?.price}
@@ -87,8 +89,8 @@ const ProductDetailModal = () => {
               </div>
               <div className="flex items-center gap-1">
                 {data.discount && (
-                  <div className="flex items-center">
-                    <span className="bg-red-500 text-white text-[10px]  h-5 w-5 rounded-full text-center flex justify-center items-center">
+                  <div className="flex items-center gap-1">
+                    <span className="bg-red-500 text-white text-[10px] h-5 w-5 rounded-full text-center flex justify-center items-center">
                       {data.discount}%
                     </span>
                     off
@@ -96,7 +98,7 @@ const ProductDetailModal = () => {
                 )}
               </div>
             </div>
-            <div className="flex gap-5 my-4 text-sm">
+            <div className="flex gap-5 my-4 text-sm max-lg:my-2">
               <div className="flex flex-col">
                 <span className="font-semibold">Brand:</span>
                 <span className="font-semibold">Model:</span>

@@ -1,9 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "../layout/Layout";
-// import Home from "../pages/Home";
-// import Cart from "../pages/Cart";
 import NotFound from "../components/not-found/NotFound";
-// import Category from "../pages/Category";
 import { lazy } from "react";
 
 const Home = lazy(() => import("../pages/Home"));
