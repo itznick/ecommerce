@@ -30,8 +30,8 @@ const MediumProductCard: React.FC<ProductCardProps> = ({
           src={image}
           alt={title}
           className="
-            object-contain p-2
-            max-sm:h-72 md:h-44 lg:h-48 xl:h-52
+            object-contain p-2 lg:p-0
+            max-sm:h-66 md:h-52 xl:h-52
             transition-transform duration-300 hover:scale-105
           "
         />
@@ -49,7 +49,7 @@ const MediumProductCard: React.FC<ProductCardProps> = ({
             ${discountedPrice}
           </span>
           {discount > 0 && (
-            <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+            <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full lg:px-1">
               {discount}% off
             </span>
           )}
