@@ -49,8 +49,8 @@ const SmallProductCard: React.FC<ProductCardProps> = ({
           </div>
           <div className="flex items-center gap-1">
             {discount && (
-              <div className="flex items-center">
-                <span className="bg-red-500 text-white text-[10px]  h-5 w-5 rounded-full text-center flex justify-center items-center">
+              <div className="flex items-center gap-1">
+                <span className="bg-red-500 text-white text-[10px] h-5 w-5 rounded-full text-center flex justify-center items-center">
                   {discount}%
                 </span>
                 off

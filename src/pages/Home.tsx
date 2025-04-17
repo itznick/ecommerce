@@ -12,7 +12,7 @@ const Home = () => {
       <HotAndNew limit={4} />
       {/* <ProductDetailModal /> */}
       <Banner />
-      {/* <BundleAndSave /> */}
+      <BundleAndSave />
       {/* <FeaturedBrands /> */}
       {/* <TrendingProducts /> */}
       {/* <Footer /> */}
