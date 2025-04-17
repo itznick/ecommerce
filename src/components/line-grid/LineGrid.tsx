@@ -32,7 +32,7 @@ const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
     : [];
 
   return (
-    <div className="grid grid-cols-4 py-2 gap-5 mt-4">
+    <div className="grid lg:grid-cols-4 py-2 gap-5 mt-4 max-sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-2">
       {products.map(
         (product: {
           id: number;
