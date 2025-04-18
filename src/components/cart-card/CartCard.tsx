@@ -36,12 +36,12 @@ const CartCard = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
+    <div>
       {cartItem.items.map((item) => {
         return (
           <div
             key={item.id}
-            className="border lg:w-[950px] max-sm:w-[340px] max-md:w-[550px] max-xl:w-[660px] flex justify-between items-center px-4 py-2 gap-9 mt-4 shadow-md rounded-md max-md:flex-col"
+            className="border w-[950px] flex justify-between items-center px-4 py-2 gap-9 mt-4 shadow-md rounded-md"
           >
             <div className="flex items-center justify-center">
               <img
@@ -65,13 +65,13 @@ const CartCard = () => {
                 </div>
               </div>
               <span className="text-green-500">In Stock</span>
-              <div className="flex items-center justify-between mt-2">
-                <div className="flex items-center gap-2 mt-2 ">
+              <div className="flex mt-2 items-center justify-between">
+                <div className="flex gap-2 mt-2 items-center ">
                   <span>Qty:</span>
-                  <div className="flex items-center gap-2">
+                  <div className="flex gap-2 items-center">
                     <Button
                       variant={"ghost"}
-                      className="w-12 h-12 cursor-pointer"
+                      className="cursor-pointer w-12 h-12"
                       onClick={() => handleDecrement(item.id)}
                       disabled={item.quantity === 1}
                     >
@@ -80,17 +80,17 @@ const CartCard = () => {
                     <span>{item.quantity}</span>
                     <Button
                       variant={"ghost"}
-                      className="w-12 h-12 cursor-pointer"
+                      className="cursor-pointer w-12 h-12"
                       onClick={() => handleIncrement(item.id)}
                     >
                       <SquarePlus />
                     </Button>
                   </div>
                 </div>
-                <div className="flex gap-2 cursor-pointer">
+                <div className="cursor-pointer flex gap-2">
                   <Button
                     variant={"destructive"}
-                    className="flex items-center justify-center h-6 cursor-pointer hover:bg-red-700"
+                    className="h-6 cursor-pointer flex items-center justify-center hover:bg-red-700"
                     onClick={() => handleRemoveItem(item.id, item.title)}
                   >
                     <Trash2 />

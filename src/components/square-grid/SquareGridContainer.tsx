@@ -2,7 +2,10 @@ import { fetchProductByCategory } from "../../services/api";
 import { useQuery } from "@tanstack/react-query";
 import SmallProductCard from "../card-variants/SmallProductCard";
 import { Tag } from "lucide-react";
-import { SquareGridContainerProps } from "../../interfaces/componentProps.types";
+
+interface SquareGridContainerProps {
+  category: string;
+}
 
 const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
   category,
@@ -10,7 +13,6 @@ const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
   const { data, error, isLoading, isPending, isError } = useQuery({
     queryKey: ["categories", category],
     queryFn: () => fetchProductByCategory(category),
-    staleTime: 1000 * 60 * 5,
   });
 
   if (isLoading || isPending)
@@ -24,11 +26,11 @@ const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
 
   return (
     <div className="capitalize rounded-md">
-      <div className="flex items-center gap-2 px-2 mt-2">
+      <div className="flex items-center gap-2 mt-2 px-2">
         <Tag className="text-orange-500" />
         <span className="text-xl font-medium text-gray-800">{category}</span>
       </div>
-      <div className="grid grid-cols-2 gap-4 p-2 max-sm:grid-cols-1">
+      <div className="grid grid-cols-2 gap-4 p-2 ">
         {products.map(
           (product: {
             id: number;

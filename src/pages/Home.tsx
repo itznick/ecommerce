@@ -8,15 +8,10 @@ import ProductDetailModal from "../components/product-detail-modal/ProductDetail
 
 const Home = () => {
   return (
-    <div className="flex flex-col justify-between gap-y-4">
-      <div className="md:hidden">
-        <Banner />
-      </div>
+    <div className="flex flex-col justify-between gap-y-8">
       <HotAndNew limit={4} />
       <ProductDetailModal />
-      <div className="max-md:hidden">
-        <Banner />
-      </div>
+      <Banner />
       <BundleAndSave />
       <FeaturedBrands />
       <TrendingProducts />

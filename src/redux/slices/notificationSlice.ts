@@ -1,8 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {
-  Notification,
-  NotificationState,
-} from "../../interfaces/notification.types";
+
+interface Notification {
+  id: number;
+  title: string;
+  message: string;
+  type: "added" | "removed";
+}
+
+interface NotificationState {
+  notifications: Notification[];
+}
 
 const initialState: NotificationState = {
   notifications: [],

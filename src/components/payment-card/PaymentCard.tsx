@@ -6,21 +6,24 @@ import { RootState } from "../../redux/store";
 const PaymentCard = () => {
   const cart = useSelector((state: RootState) => state.cart);
 
+  // Total price (without discount)
   const totalPrice = cart.items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
 
+  // Total discount amount in dollars
   const totalDiscount = cart.items.reduce(
     (acc, item) => acc + ((item.price * item.discount) / 100) * item.quantity,
     0
   );
 
+  // Subtotal after applying discount
   const subtotal = totalPrice - totalDiscount;
 
   return (
-    <div className="mt-4 w-[450px] max-sm:w-[350px] bg-zinc-100 rounded-md p-4">
-      <h1 className="text-2xl text-center">Order Summary</h1>
+    <div className="mt-4 w-[450px] bg-zinc-100 rounded-md p-4">
+      <h1 className="text-center text-2xl">Order Summary</h1>
       <Separator className="w-full my-2" />
       <div className="flex mt-4 gap-30">
         <div className="flex flex-col">
@@ -35,12 +38,12 @@ const PaymentCard = () => {
         </div>
       </div>
       <Separator className="w-full my-2" />
-      <div className="flex mt-4 text-xl gap-30">
+      <div className="mt-4 flex gap-30 text-xl">
         <h1>Subtotal:</h1>
         <h1>${Math.round(subtotal)}</h1>
       </div>
-      <div className="flex mt-4">
-        <Button className="bg-gray-800 cursor-pointer hover:bg-gray-600">
+      <div className="mt-4 flex">
+        <Button className="bg-gray-800 hover:bg-gray-600 cursor-pointer">
           Proceed to Pay
         </Button>
       </div>
