@@ -25,19 +25,19 @@ const Notification = () => {
 
   return (
     <Sheet>
-      <SheetTrigger asChild className="mt-2 relative">
+      <SheetTrigger asChild className="relative mt-2">
         <div>
           {totalCount > 0 && (
-            <Badge className="px-1 bg-red-500 w-5 rounded-full text-white text-xs flex items-center justify-center absolute -top-2 -right-2 pointer-events-none">
+            <Badge className="absolute flex items-center justify-center w-5 px-1 text-xs text-white bg-red-500 rounded-full pointer-events-none -top-2 -right-2">
               {totalCount}
             </Badge>
           )}
           <button aria-label="Open notifications">
-            <Bell className="w-8 h-8 cursor-pointer hover:text-orange-500" />
+            <Bell className="w-6 h-6 cursor-pointer hover:text-orange-500 sm:w-7 sm:h-7" />
           </button>
         </div>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="">
         <SheetHeader>
           <div className="flex items-center gap-2">
             <Inbox className="w-6 h-6 text-gray-600" />
@@ -54,10 +54,13 @@ const Notification = () => {
         {notification.notifications.length > 0 ? (
           notification.notifications.map((notification) => (
             <>
-              <Card className="shadow-none  outline-0 mx-2">
+              <Card
+                className="mx-2 shadow-none outline-0"
+                key={notification.id}
+              >
                 <CardContent className="flex">
-                  <div className="flex items-start gap-4 w-full">
-                    <CheckCircle className="text-orange-500 w-5 h-5 mt-1" />
+                  <div className="flex items-start w-full gap-4">
+                    <CheckCircle className="w-5 h-5 mt-1 text-orange-500" />
                     <div className="flex flex-col w-full">
                       <p className="w-full text-sm font-medium text-gray-800 line-clamp-3">
                         {notification.title}

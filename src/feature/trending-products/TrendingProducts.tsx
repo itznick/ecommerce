@@ -4,9 +4,9 @@ import LineGrid from "../../components/line-grid/LineGrid";
 const TrendingProducts = () => {
   return (
     <div className="px-4">
-      <div className="flex items-center gap-2 bg-orange-500 rounded-md p-1 w-56">
+      <div className="flex items-center w-56 gap-2 p-1 bg-orange-500 rounded-md">
         <TrendingUp className="w-6 h-6 text-white" />
-        <h2 className="text-xl font-semimedium text-white">
+        <h2 className="text-xl text-white font-semimedium">
           Trending Products
         </h2>
       </div>

@@ -33,6 +33,7 @@ const ProductDetailModal = () => {
     queryKey: ["product", productId],
     queryFn: () => (productId !== null ? fetchProductById(productId) : null),
     enabled: productId !== null,
+    staleTime: 1000 * 60 * 5,
   });
 
   if (!isOpen) return null;
@@ -44,7 +45,7 @@ const ProductDetailModal = () => {
       open={isOpen}
       onOpenChange={(open) => !open && dispatch(closeModal())}
     >
-      <DialogContent className="flex justify-between items-center w-[70vw] z-50 h-[80vh]">
+      <DialogContent className="flex md:justify-between items-center w-[70vw] z-50 h-[80vh] max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:max-w-[100%] max-lg:rounded-none max-lg:overflow-scroll ">
         <DialogHeader>
           {isLoading && (
             <DialogTitle className="text-lg text-center">
@@ -52,7 +53,7 @@ const ProductDetailModal = () => {
             </DialogTitle>
           )}
           {isError && (
-            <DialogTitle className="text-lg text-red-500 text-center">
+            <DialogTitle className="text-lg text-center text-red-500">
               Failed to load product.
             </DialogTitle>
           )}
@@ -62,7 +63,7 @@ const ProductDetailModal = () => {
                 <img
                   src={data?.image}
                   alt={data?.title}
-                  className="object-contain w-[900px] h-[450px] text-sm"
+                  className="object-contain w-[900px] h-[450px] text-sm max-lg:w-[500px] max-lg:h-[300px] lg:w-[600px] lg:h-[300px]"
                 />
               </DialogTitle>
               <DialogDescription></DialogDescription>
@@ -71,24 +72,33 @@ const ProductDetailModal = () => {
         </DialogHeader>
 
         {!isLoading && !isError && data && (
-          <div className="flex flex-col gap-2 px-8 w-full">
-            <span className="font-medium text-xl">{data?.title}</span>
-            <div className="flex items-center gap-2 px-2">
-              <span className="text-lg line-through text-zinc-400">
-                ${data?.price}
-              </span>
+          <div className="flex flex-col w-full gap-2 px-8 max-lg:px-0">
+            <span className="text-xl font-medium max-md:text-lg">
+              {data?.title}
+            </span>
+            <div className="flex items-center gap-2 px-2 max-lg:px-0">
+              {data.discount && (
+                <span className="text-lg line-through text-zinc-400">
+                  ${data?.price}
+                </span>
+              )}
               <div className="text-3xl font-semibold">
                 <span className="text-green-500">$</span>
-                {Math.round(calculateDiscount(data?.price, data?.discount))}
+                {Math.round(calculateDiscount(data?.price, data?.discount)) ||
+                  data.price}
               </div>
               <div className="flex items-center gap-1">
-                <span className="bg-red-500 text-white text-[12px] p-[12px] h-5 w-5 rounded-full text-center flex justify-center items-center">
-                  {data?.discount}%
-                </span>
-                off
+                {data.discount && (
+                  <div className="flex items-center gap-1">
+                    <span className="bg-red-500 text-white text-[10px] h-5 w-5 rounded-full text-center flex justify-center items-center">
+                      {data.discount}%
+                    </span>
+                    off
+                  </div>
+                )}
               </div>
             </div>
-            <div className="flex gap-5 my-4 text-sm">
+            <div className="flex gap-5 my-4 text-sm max-lg:my-2">
               <div className="flex flex-col">
                 <span className="font-semibold">Brand:</span>
                 <span className="font-semibold">Model:</span>
@@ -101,17 +111,17 @@ const ProductDetailModal = () => {
               </div>
             </div>
             <div>
-              <span className="font-semibold mb-1 text-sm">
+              <span className="mb-1 text-sm font-semibold">
                 About this product:
               </span>
-              <span className="whitespace-break-spaces line-clamp-5 text-sm">
+              <span className="text-sm whitespace-break-spaces line-clamp-5">
                 {data?.description}
               </span>
             </div>
             <div className="mt-2">
               {isInCart ? (
                 <Button
-                  className="bg-green-500 hover:bg-green-700 cursor-pointer"
+                  className="bg-green-500 cursor-pointer hover:bg-green-700"
                   onClick={() => {
                     navigate("/cart");
                     dispatch(closeModal());
@@ -122,7 +132,7 @@ const ProductDetailModal = () => {
                 </Button>
               ) : (
                 <Button
-                  className="bg-orange-500 hover:bg-orange-700 cursor-pointer"
+                  className="bg-orange-500 cursor-pointer hover:bg-orange-700"
                   onClick={() => {
                     dispatch(addToCart(data));
                     dispatch(
