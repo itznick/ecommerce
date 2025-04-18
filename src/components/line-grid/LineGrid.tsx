@@ -4,12 +4,7 @@ import {
   fetchProductsByPage,
 } from "../../services/api";
 import SmallProductCard from "../card-variants/SmallProductCard";
-
-interface LineGridProps {
-  category: string;
-  limit?: number;
-  page: number;
-}
+import { LineGridProps } from "../../interfaces/componentProps.types";
 
 const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
   const { data, error, isLoading } = useQuery({
@@ -18,6 +13,7 @@ const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
       category === "all"
         ? fetchProductsByPage(page)
         : fetchProductByCategoryDesc(category),
+    staleTime: 1000 * 60 * 5,
   });
 
   if (isLoading) return <p className="text-center text-gray-600">Loading...</p>;
@@ -31,7 +27,7 @@ const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
     : [];
 
   return (
-    <div className="grid grid-cols-4 py-2 gap-5 mt-4">
+    <div className="grid gap-5 py-2 mt-4 lg:grid-cols-4 max-sm:grid-cols-1 sm:grid-cols-2 md:grid-cols-2">
       {products.map(
         (product: {
           id: number;

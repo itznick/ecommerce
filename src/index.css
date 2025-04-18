@@ -134,12 +134,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    45deg,
-    #d1d1d1,
-    #888
-  );
-  border-radius: 10px; 
+  background: linear-gradient(45deg, #d1d1d1, #888);
+  border-radius: 10px;
   transition: background 0.3s ease;
 }
 
@@ -169,4 +165,12 @@ body {
 
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
