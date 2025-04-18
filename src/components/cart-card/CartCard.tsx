@@ -36,12 +36,12 @@ const CartCard = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center gap-4">
       {cartItem.items.map((item) => {
         return (
           <div
             key={item.id}
-            className="border w-[950px] max-sm:w-[350px] flex justify-between items-center px-4 py-2 gap-9 mt-4 shadow-md rounded-md max-sm:flex-col"
+            className="border w-[950px] max-sm:w-[340px] max-md:w-[550px] max-xl:w-[660px] lg:w-[660px] lg:flex-col flex justify-between items-center px-4 py-2 gap-9 mt-4 shadow-md rounded-md max-xl:flex-col"
           >
             <div className="flex items-center justify-center">
               <img

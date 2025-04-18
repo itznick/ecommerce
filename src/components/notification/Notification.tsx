@@ -37,7 +37,7 @@ const Notification = () => {
           </button>
         </div>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="">
         <SheetHeader>
           <div className="flex items-center gap-2">
             <Inbox className="w-6 h-6 text-gray-600" />

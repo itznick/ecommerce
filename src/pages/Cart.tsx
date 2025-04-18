@@ -12,7 +12,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center w-full">
+    <div className="flex flex-col items-center w-full mt-20">
       <Header />
       <div className="flex">
         {cartItem.items.length === 0 ? (
@@ -35,7 +35,7 @@ const Cart = () => {
             </button>
           </div>
         ) : (
-          <div className="flex justify-between gap-4 max-sm:flex-col">
+          <div className="flex justify-between gap-4 max-lg:flex-col">
             <div>
               <h1>Your Cart</h1>
               <CartCard />
