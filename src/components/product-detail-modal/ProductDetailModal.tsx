@@ -73,7 +73,7 @@ const ProductDetailModal = () => {
 
         {!isLoading && !isError && data && (
           <div className="flex flex-col gap-2 px-8 w-full max-lg:px-0">
-            <span className="font-medium text-xl max-lg:text-lg lg:text-base">
+            <span className="font-medium text-xl max-md:text-lg">
               {data?.title}
             </span>
             <div className="flex items-center gap-2 px-2 max-lg:px-0">
