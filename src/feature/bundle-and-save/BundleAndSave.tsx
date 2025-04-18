@@ -4,7 +4,7 @@ import SquareGridContainer from "../../components/square-grid/SquareGridContaine
 const BundleAndSave = () => {
   return (
     <div className="px-2 sm:px-4">
-      <div className="flex items-center gap-2 bg-orange-500 rounded-md p-1 w-44">
+      <div className="flex items-center gap-2 p-1 bg-orange-500 rounded-md w-44">
         <Package className="text-white" />
         <h2 className="text-xl font-medium text-white">Bundle & Save</h2>
       </div>

@@ -53,7 +53,7 @@ const ProductDetailModal = () => {
             </DialogTitle>
           )}
           {isError && (
-            <DialogTitle className="text-lg text-red-500 text-center">
+            <DialogTitle className="text-lg text-center text-red-500">
               Failed to load product.
             </DialogTitle>
           )}
@@ -72,8 +72,8 @@ const ProductDetailModal = () => {
         </DialogHeader>
 
         {!isLoading && !isError && data && (
-          <div className="flex flex-col gap-2 px-8 w-full max-lg:px-0">
-            <span className="font-medium text-xl max-md:text-lg">
+          <div className="flex flex-col w-full gap-2 px-8 max-lg:px-0">
+            <span className="text-xl font-medium max-md:text-lg">
               {data?.title}
             </span>
             <div className="flex items-center gap-2 px-2 max-lg:px-0">
@@ -111,17 +111,17 @@ const ProductDetailModal = () => {
               </div>
             </div>
             <div>
-              <span className="font-semibold mb-1 text-sm">
+              <span className="mb-1 text-sm font-semibold">
                 About this product:
               </span>
-              <span className="whitespace-break-spaces line-clamp-5 text-sm">
+              <span className="text-sm whitespace-break-spaces line-clamp-5">
                 {data?.description}
               </span>
             </div>
             <div className="mt-2">
               {isInCart ? (
                 <Button
-                  className="bg-green-500 hover:bg-green-700 cursor-pointer"
+                  className="bg-green-500 cursor-pointer hover:bg-green-700"
                   onClick={() => {
                     navigate("/cart");
                     dispatch(closeModal());
@@ -132,7 +132,7 @@ const ProductDetailModal = () => {
                 </Button>
               ) : (
                 <Button
-                  className="bg-orange-500 hover:bg-orange-700 cursor-pointer"
+                  className="bg-orange-500 cursor-pointer hover:bg-orange-700"
                   onClick={() => {
                     dispatch(addToCart(data));
                     dispatch(

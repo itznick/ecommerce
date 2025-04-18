@@ -65,13 +65,13 @@ const CartCard = () => {
                 </div>
               </div>
               <span className="text-green-500">In Stock</span>
-              <div className="flex mt-2 items-center justify-between">
-                <div className="flex gap-2 mt-2 items-center ">
+              <div className="flex items-center justify-between mt-2">
+                <div className="flex items-center gap-2 mt-2 ">
                   <span>Qty:</span>
-                  <div className="flex gap-2 items-center">
+                  <div className="flex items-center gap-2">
                     <Button
                       variant={"ghost"}
-                      className="cursor-pointer w-12 h-12"
+                      className="w-12 h-12 cursor-pointer"
                       onClick={() => handleDecrement(item.id)}
                       disabled={item.quantity === 1}
                     >
@@ -80,17 +80,17 @@ const CartCard = () => {
                     <span>{item.quantity}</span>
                     <Button
                       variant={"ghost"}
-                      className="cursor-pointer w-12 h-12"
+                      className="w-12 h-12 cursor-pointer"
                       onClick={() => handleIncrement(item.id)}
                     >
                       <SquarePlus />
                     </Button>
                   </div>
                 </div>
-                <div className="cursor-pointer flex gap-2">
+                <div className="flex gap-2 cursor-pointer">
                   <Button
                     variant={"destructive"}
-                    className="h-6 cursor-pointer flex items-center justify-center hover:bg-red-700"
+                    className="flex items-center justify-center h-6 cursor-pointer hover:bg-red-700"
                     onClick={() => handleRemoveItem(item.id, item.title)}
                   >
                     <Trash2 />

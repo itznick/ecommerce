@@ -54,7 +54,10 @@ const Notification = () => {
         {notification.notifications.length > 0 ? (
           notification.notifications.map((notification) => (
             <>
-              <Card className="mx-2 shadow-none outline-0">
+              <Card
+                className="mx-2 shadow-none outline-0"
+                key={notification.id}
+              >
                 <CardContent className="flex">
                   <div className="flex items-start w-full gap-4">
                     <CheckCircle className="w-5 h-5 mt-1 text-orange-500" />

@@ -27,7 +27,7 @@ const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
 
   return (
     <div className="capitalize rounded-md">
-      <div className="flex items-center gap-2 mt-2 px-2">
+      <div className="flex items-center gap-2 px-2 mt-2">
         <Tag className="text-orange-500" />
         <span className="text-xl font-medium text-gray-800">{category}</span>
       </div>

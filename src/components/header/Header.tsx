@@ -22,8 +22,8 @@ const Header = () => {
   const cartItems = useSelector((state: RootState) => state.cart);
   const { state, open } = useSidebar();
   return (
-    <header className="fixed top-0 left-0 z-40 flex flex-col items-center  w-full bg-white shadow-sm h-14 md:h-16">
-      <nav className="flex justify-between items-center w-full px-4 h-full mx-4 md:px-6">
+    <header className="fixed top-0 left-0 z-40 flex flex-col items-center w-full bg-white shadow-sm h-14 md:h-16">
+      <nav className="flex items-center justify-between w-full h-full px-4 mx-4 md:px-6">
         <NavLink to="/" className="flex items-center justify-center gap-2">
           <ShoppingBag
             className="w-6 h-6 sm:w-7 sm:h-7 md:h-8 md:w-8"
@@ -51,7 +51,7 @@ const Header = () => {
             {cartItems.totalCount > 0 && (
               <Badge
                 variant="destructive"
-                className="absolute flex items-center justify-center w-5 px-1 text-xs text-white bg-red-500 rounded-full pointer-events-none top-2 right-2"
+                className="absolute flex items-center justify-center w-5 px-1 text-xs text-white bg-red-500 rounded-full pointer-events-none -top-2 -right-2"
               >
                 {cartItems.totalCount}
               </Badge>
@@ -65,7 +65,7 @@ const Header = () => {
               </SignedIn>
             </div>
           ) : (
-            <div className="py-2 text-center text-base text-white bg-orange-500 rounded-md max-sm:hidden sm:hidden md:block line-clamp-1 w-20">
+            <div className="w-20 py-2 text-base text-center text-white bg-orange-500 rounded-md max-sm:hidden sm:hidden md:block line-clamp-1">
               <SignedOut>
                 <SignInButton />
               </SignedOut>

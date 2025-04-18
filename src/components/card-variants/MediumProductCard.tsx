@@ -24,28 +24,24 @@ const MediumProductCard: React.FC<ProductCardProps> = ({
     Math.round(calculateDiscount(price, discount)) || price;
 
   return (
-    <Card onClick={() => dispatch(openModal(id))} className="width-full flex">
+    <Card onClick={() => dispatch(openModal(id))} className="flex width-full">
       <CardHeader className="flex items-center justify-center">
         <img
           src={image}
           alt={title}
-          className="
-            object-contain p-2 lg:p-0
-            max-sm:h-66 md:h-52 xl:h-52
-            transition-transform duration-300 hover:scale-105
-          "
+          className="object-contain p-2 transition-transform duration-300 lg:p-0 max-sm:h-66 md:h-52 xl:h-52 hover:scale-105"
         />
       </CardHeader>
 
-      <CardContent className="flex flex-col px-3 pt-1 gap-1">
-        <span className="truncate text-sm sm:text-base font-medium">
+      <CardContent className="flex flex-col gap-1 px-3 pt-1">
+        <span className="text-sm font-medium truncate sm:text-base">
           {title}
         </span>
         <div className="flex items-center gap-2">
           {discount > 0 && (
-            <span className="text-zinc-400 line-through text-sm">${price}</span>
+            <span className="text-sm line-through text-zinc-400">${price}</span>
           )}
-          <span className="text-lg sm:text-xl font-semibold text-green-600">
+          <span className="text-lg font-semibold text-green-600 sm:text-xl">
             ${discountedPrice}
           </span>
           {discount > 0 && (

@@ -22,19 +22,19 @@ const Banner = () => {
         {banners.map((banner, index) => (
           <CarouselItem key={index} className="basis-full">
             <div className="px-2 sm:px-4">
-              <Card className="max-h-96 flex justify-center rounded-md border-none shadow-none">
+              <Card className="flex justify-center border-none rounded-md shadow-none max-h-96">
                 <Img
                   src={[banner.url]}
                   alt={banner.title}
-                  className="h-auto max-h-96 w-full object-cover rounded-md"
+                  className="object-cover w-full h-auto rounded-md max-h-96"
                 />
               </Card>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="max-md:hidden absolute top-1/2 left-0 -translate-y-1/2 ml-6" />
-      <CarouselNext className="max-md:hidden absolute top-1/2 right-0 -translate-x-1/2 mr-6" />
+      <CarouselPrevious className="absolute left-0 ml-6 -translate-y-1/2 max-md:hidden top-1/2" />
+      <CarouselNext className="absolute right-0 mr-6 -translate-x-1/2 max-md:hidden top-1/2" />
     </Carousel>
   );
 };

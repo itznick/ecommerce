@@ -20,7 +20,7 @@ const PaymentCard = () => {
 
   return (
     <div className="mt-4 w-[450px] max-sm:w-[350px] bg-zinc-100 rounded-md p-4">
-      <h1 className="text-center text-2xl">Order Summary</h1>
+      <h1 className="text-2xl text-center">Order Summary</h1>
       <Separator className="w-full my-2" />
       <div className="flex mt-4 gap-30">
         <div className="flex flex-col">
@@ -35,12 +35,12 @@ const PaymentCard = () => {
         </div>
       </div>
       <Separator className="w-full my-2" />
-      <div className="mt-4 flex gap-30 text-xl">
+      <div className="flex mt-4 text-xl gap-30">
         <h1>Subtotal:</h1>
         <h1>${Math.round(subtotal)}</h1>
       </div>
-      <div className="mt-4 flex">
-        <Button className="bg-gray-800 hover:bg-gray-600 cursor-pointer">
+      <div className="flex mt-4">
+        <Button className="bg-gray-800 cursor-pointer hover:bg-gray-600">
           Proceed to Pay
         </Button>
       </div>
