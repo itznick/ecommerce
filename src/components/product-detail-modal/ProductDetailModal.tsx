@@ -33,7 +33,6 @@ const ProductDetailModal = () => {
     queryKey: ["product", productId],
     queryFn: () => (productId !== null ? fetchProductById(productId) : null),
     enabled: productId !== null,
-    staleTime: 1000 * 60 * 5,
   });
 
   if (!isOpen) return null;
@@ -45,7 +44,7 @@ const ProductDetailModal = () => {
       open={isOpen}
       onOpenChange={(open) => !open && dispatch(closeModal())}
     >
-      <DialogContent className="flex md:justify-between items-center w-[70vw] z-50 h-[80vh] max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:max-w-[100%] max-lg:rounded-none max-lg:overflow-scroll ">
+      <DialogContent className="flex justify-between items-center w-[70vw] z-50 h-[80vh]">
         <DialogHeader>
           {isLoading && (
             <DialogTitle className="text-lg text-center">
@@ -63,7 +62,7 @@ const ProductDetailModal = () => {
                 <img
                   src={data?.image}
                   alt={data?.title}
-                  className="object-contain w-[900px] h-[450px] text-sm max-lg:w-[500px] max-lg:h-[300px] lg:w-[600px] lg:h-[300px]"
+                  className="object-contain w-[900px] h-[450px] text-sm"
                 />
               </DialogTitle>
               <DialogDescription></DialogDescription>
@@ -72,33 +71,24 @@ const ProductDetailModal = () => {
         </DialogHeader>
 
         {!isLoading && !isError && data && (
-          <div className="flex flex-col gap-2 px-8 w-full max-lg:px-0">
-            <span className="font-medium text-xl max-md:text-lg">
-              {data?.title}
-            </span>
-            <div className="flex items-center gap-2 px-2 max-lg:px-0">
-              {data.discount && (
-                <span className="text-lg line-through text-zinc-400">
-                  ${data?.price}
-                </span>
-              )}
+          <div className="flex flex-col gap-2 px-8 w-full">
+            <span className="font-medium text-xl">{data?.title}</span>
+            <div className="flex items-center gap-2 px-2">
+              <span className="text-lg line-through text-zinc-400">
+                ${data?.price}
+              </span>
               <div className="text-3xl font-semibold">
                 <span className="text-green-500">$</span>
-                {Math.round(calculateDiscount(data?.price, data?.discount)) ||
-                  data.price}
+                {Math.round(calculateDiscount(data?.price, data?.discount))}
               </div>
               <div className="flex items-center gap-1">
-                {data.discount && (
-                  <div className="flex items-center gap-1">
-                    <span className="bg-red-500 text-white text-[10px] h-5 w-5 rounded-full text-center flex justify-center items-center">
-                      {data.discount}%
-                    </span>
-                    off
-                  </div>
-                )}
+                <span className="bg-red-500 text-white text-[12px] p-[12px] h-5 w-5 rounded-full text-center flex justify-center items-center">
+                  {data?.discount}%
+                </span>
+                off
               </div>
             </div>
-            <div className="flex gap-5 my-4 text-sm max-lg:my-2">
+            <div className="flex gap-5 my-4 text-sm">
               <div className="flex flex-col">
                 <span className="font-semibold">Brand:</span>
                 <span className="font-semibold">Model:</span>

@@ -41,7 +41,7 @@ const CartCard = () => {
         return (
           <div
             key={item.id}
-            className="border w-[950px] max-sm:w-[350px] flex justify-between items-center px-4 py-2 gap-9 mt-4 shadow-md rounded-md max-sm:flex-col"
+            className="border w-[950px] flex justify-between items-center px-4 py-2 gap-9 mt-4 shadow-md rounded-md"
           >
             <div className="flex items-center justify-center">
               <img
