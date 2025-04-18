@@ -4,12 +4,7 @@ import {
   fetchProductsByPage,
 } from "../../services/api";
 import SmallProductCard from "../card-variants/SmallProductCard";
-
-interface LineGridProps {
-  category: string;
-  limit?: number;
-  page: number;
-}
+import { LineGridProps } from "../../interfaces/componentProps.types";
 
 const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
   const { data, error, isLoading } = useQuery({

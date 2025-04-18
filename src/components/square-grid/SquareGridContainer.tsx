@@ -2,10 +2,7 @@ import { fetchProductByCategory } from "../../services/api";
 import { useQuery } from "@tanstack/react-query";
 import SmallProductCard from "../card-variants/SmallProductCard";
 import { Tag } from "lucide-react";
-
-interface SquareGridContainerProps {
-  category: string;
-}
+import { SquareGridContainerProps } from "../../interfaces/componentProps.types";
 
 const SquareGridContainer: React.FC<SquareGridContainerProps> = ({
   category,

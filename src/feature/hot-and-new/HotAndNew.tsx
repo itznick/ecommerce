@@ -3,10 +3,7 @@ import { Flame } from "lucide-react";
 import { fetchLimitedProducts } from "../../services/api";
 import { Skeleton } from "../../components/ui/skeleton";
 import MediumProductCard from "../../components/card-variants/MediumProductCard";
-
-interface HotAndNewProps {
-  limit: number;
-}
+import { HotAndNewProps } from "../../interfaces/componentProps.types";
 
 const HotAndNew: React.FC<HotAndNewProps> = ({ limit }) => {
   const {

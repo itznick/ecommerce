@@ -3,14 +3,7 @@ import { Card, CardContent, CardHeader } from "../ui/card";
 import { AppDispatch } from "../../redux/store";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../redux/slices/modalSlice";
-
-interface ProductCardProps {
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  discount: number;
-}
+import { ProductCardProps } from "../../interfaces/product.types";
 
 const MediumProductCard: React.FC<ProductCardProps> = ({
   id,
