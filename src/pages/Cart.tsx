@@ -35,7 +35,7 @@ const Cart = () => {
             </button>
           </div>
         ) : (
-          <div className="flex justify-between gap-4 max-lg:flex-col">
+          <div className="flex justify-between gap-4 max-xl:flex-col">
             <div>
               <h1>Your Cart</h1>
               <CartCard />
