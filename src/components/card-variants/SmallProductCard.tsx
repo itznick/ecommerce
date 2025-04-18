@@ -35,7 +35,7 @@ const SmallProductCard: React.FC<ProductCardProps> = ({
           className="object-contain p-2 cursor-pointer hover:scale-115 duration-300 transition"
         />
       </CardHeader>
-      <CardContent className=" w-full flex flex-col p-0 px-1 mt-3 justify-center">
+      <CardContent className="w-full flex flex-col p-0 px-1 mt-3 justify-center">
         <span className="w-full truncate text-sm font-medium px-2 mb-1">
           {title}
         </span>
@@ -49,8 +49,8 @@ const SmallProductCard: React.FC<ProductCardProps> = ({
           </div>
           <div className="flex items-center gap-1">
             {discount && (
-              <div className="flex items-center">
-                <span className="bg-red-500 text-white text-[10px]  h-5 w-5 rounded-full text-center flex justify-center items-center">
+              <div className="flex items-center gap-1">
+                <span className="bg-red-500 text-white text-[10px] h-5 w-5 rounded-full text-center flex justify-center items-center">
                   {discount}%
                 </span>
                 off

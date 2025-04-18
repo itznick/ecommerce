@@ -20,40 +20,39 @@ const MediumProductCard: React.FC<ProductCardProps> = ({
   discount,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
+  const discountedPrice =
+    Math.round(calculateDiscount(price, discount)) || price;
 
   return (
-    <Card
-      className="h-[300px] flex-1 rounded-md"
-      key={id}
-      onClick={() => dispatch(openModal(id))}
-    >
-      <CardHeader className="flex-col items-center justify-center">
+    <Card onClick={() => dispatch(openModal(id))} className="width-full flex">
+      <CardHeader className="flex items-center justify-center">
         <img
           src={image}
           alt={title}
-          className="object-contain p-2  w-[250px] cursor-pointer hover:scale-115 duration-300 transition"
+          className="
+            object-contain p-2 lg:p-0
+            max-sm:h-66 md:h-52 xl:h-52
+            transition-transform duration-300 hover:scale-105
+          "
         />
       </CardHeader>
-      <CardContent className=" w-full flex flex-col p-0 px-1 mt-3 justify-center">
-        <span className="w-full truncate text-sm font-medium">{title}</span>
+
+      <CardContent className="flex flex-col px-3 pt-1 gap-1">
+        <span className="truncate text-sm sm:text-base font-medium">
+          {title}
+        </span>
         <div className="flex items-center gap-2">
-          {discount && (
-            <span className="text-zinc-400 line-through text-sm">{price}</span>
+          {discount > 0 && (
+            <span className="text-zinc-400 line-through text-sm">${price}</span>
           )}
-          <div className="text-xl font-semibold">
-            <span className="text-green-500">$</span>
-            {Math.round(calculateDiscount(price, discount)) || price}
-          </div>
-          <div className="flex items-center gap-1">
-            {discount && (
-              <div className="flex items-center">
-                <span className="bg-red-500 text-white text-[10px] p-2 h-5 w-5 rounded-full text-center flex justify-center items-center">
-                  {discount}%
-                </span>
-                off
-              </div>
-            )}
-          </div>
+          <span className="text-lg sm:text-xl font-semibold text-green-600">
+            ${discountedPrice}
+          </span>
+          {discount > 0 && (
+            <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full lg:px-1">
+              {discount}% off
+            </span>
+          )}
         </div>
       </CardContent>
     </Card>

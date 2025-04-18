@@ -12,11 +12,11 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="w-full flex flex-col items-center justify-center">
       <Header />
-      <div className="mt-20 flex justify-between w-[90%] mx-auto">
+      <div className="flex">
         {cartItem.items.length === 0 ? (
-          <div className="text-center flex flex-col items-center gap-4 justify-center w-[90%] mx-auto mt-20">
+          <div className="text-center flex flex-col items-center gap-4 justify-center mt-20">
             <img
               src={shopping}
               alt="no items in cart"
@@ -35,7 +35,7 @@ const Cart = () => {
             </button>
           </div>
         ) : (
-          <div className="flex justify-between gap-4">
+          <div className="flex justify-between gap-4 max-sm:flex-col">
             <div>
               <h1>Your Cart</h1>
               <CartCard />
