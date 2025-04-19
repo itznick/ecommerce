@@ -1,5 +1,5 @@
 import space from "../../assets/error-404.gif";
-import { Button } from "../ui/button";
+import { Button } from "../../components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 

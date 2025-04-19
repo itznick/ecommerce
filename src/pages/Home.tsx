@@ -4,7 +4,7 @@ import HotAndNew from "../feature/hot-and-new/HotAndNew";
 import FeaturedBrands from "../feature/featured-brands/FeaturedBrands";
 import TrendingProducts from "../feature/trending-products/TrendingProducts";
 import Footer from "../components/footer/Footer";
-import ProductDetailModal from "../components/product-detail-modal/ProductDetailModal";
+import ProductDetailModal from "../components/product/product-detail-modal/ProductDetailModal";
 
 const Home = () => {
   return (
@@ -12,15 +12,32 @@ const Home = () => {
       <div className="md:hidden">
         <Banner />
       </div>
-      <HotAndNew limit={4} />
+
+      <section>
+        <HotAndNew limit={4} />
+      </section>
+
       <ProductDetailModal />
+
       <div className="max-md:hidden">
         <Banner />
       </div>
-      <BundleAndSave />
-      <FeaturedBrands />
-      <TrendingProducts />
-      <Footer />
+
+      <section>
+        <BundleAndSave />
+      </section>
+
+      <section>
+        <FeaturedBrands />
+      </section>
+
+      <section>
+        <TrendingProducts />
+      </section>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };

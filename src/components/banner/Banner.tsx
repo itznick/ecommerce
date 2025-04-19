@@ -11,22 +11,17 @@ import { Img } from "react-image";
 
 const Banner = () => {
   return (
-    <Carousel
-      opts={{
-        align: "start",
-        loop: true,
-      }}
-      className=""
-    >
-      <CarouselContent className="">
-        {banners.map((banner, index) => (
-          <CarouselItem key={index} className="basis-full">
+    <Carousel opts={{ align: "start", loop: true }}>
+      <CarouselContent>
+        {banners.map((banner) => (
+          <CarouselItem key={banner.id} className="basis-full">
             <div className="px-2 sm:px-4">
               <Card className="flex justify-center border-none rounded-md shadow-none max-h-96">
                 <Img
                   src={[banner.url]}
                   alt={banner.title}
                   className="object-cover w-full h-auto rounded-md max-h-96"
+                  role="img"
                 />
               </Card>
             </div>

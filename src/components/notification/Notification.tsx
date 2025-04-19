@@ -37,8 +37,8 @@ const Notification = () => {
           </button>
         </div>
       </SheetTrigger>
-      <SheetContent className="">
-        <SheetHeader>
+      <SheetContent className="overflow-scroll">
+        <SheetHeader className="">
           <div className="flex items-center gap-2">
             <Inbox className="w-6 h-6 text-gray-600" />
             <SheetTitle className="text-xl font-semibold">

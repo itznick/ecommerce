@@ -1,25 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../redux/store";
+import { AppDispatch, RootState } from "../../../redux/store";
 import {
   closeModal,
   selectModalId,
   selectModalOpen,
-} from "../../redux/slices/modalSlice";
+} from "../../../redux/slices/modalSlice";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "../ui/dialog";
+} from "../../ui/dialog";
 import { useQuery } from "@tanstack/react-query";
-import { fetchProductById } from "../../services/api";
-import { calculateDiscount } from "../../utils/discount";
-import { Button } from "../ui/button";
-import { addToCart } from "../../redux/slices/cartSlice";
+import { fetchProductById } from "../../../services/api";
+import { calculateDiscount } from "../../../utils/discount";
+import { Button } from "../../ui/button";
+import { addToCart } from "../../../redux/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
-import { addNotification } from "../../redux/slices/notificationSlice";
+import { addNotification } from "../../../redux/slices/notificationSlice";
 
 const ProductDetailModal = () => {
   const dispatch = useDispatch<AppDispatch>();

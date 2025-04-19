@@ -1,5 +1,5 @@
 import { Package } from "lucide-react";
-import SquareGridContainer from "../../components/square-grid/SquareGridContainer";
+import SquareGridContainer from "../../components/grids/square-grid/SquareGridContainer";
 
 const BundleAndSave = () => {
   return (

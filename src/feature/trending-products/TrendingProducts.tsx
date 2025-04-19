@@ -1,5 +1,5 @@
 import { TrendingUp } from "lucide-react";
-import LineGrid from "../../components/line-grid/LineGrid";
+import LineGrid from "../../components/grids/line-grid/LineGrid";
 
 const TrendingProducts = () => {
   return (

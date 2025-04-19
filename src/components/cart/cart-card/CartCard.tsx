@@ -1,17 +1,17 @@
-import { calculateDiscount } from "../../utils/discount";
+import { calculateDiscount } from "../../../utils/discount";
 import { SquareMinus, SquarePlus, Trash2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../redux/store";
-import { Button } from "../ui/button";
+import { AppDispatch, RootState } from "../../../redux/store";
+import { Button } from "../../ui/button";
 import {
   incrementQuantity,
   decrementQuantity,
   clearItemFromCart,
-} from "../../redux/slices/cartSlice";
-import { addNotification } from "../../redux/slices/notificationSlice";
+} from "../../../redux/slices/cartSlice";
+import { addNotification } from "../../../redux/slices/notificationSlice";
 
 const CartCard = () => {
-  const cartItem = useSelector((state: RootState) => state.cart);
+  const { items } = useSelector((state: RootState) => state.cart);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -37,11 +37,11 @@ const CartCard = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
-      {cartItem.items.map((item) => {
+      {items.map((item) => {
         return (
           <div
             key={item.id}
-            className="border lg:w-[950px] max-sm:w-[340px] max-md:w-[550px] max-xl:w-[660px] flex justify-between items-center px-4 py-2 gap-9 mt-4 shadow-md rounded-md max-md:flex-col"
+            className="border lg:w-[950px] max-sm:w-[300px] max-md:w-[550px] max-xl:w-[660px] flex justify-between items-center px-4 py-2 gap-9 mt-4 shadow-md rounded-md max-md:flex-col"
           >
             <div className="flex items-center justify-center">
               <img

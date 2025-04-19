@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import {
   fetchProductByCategoryDesc,
   fetchProductsByPage,
-} from "../../services/api";
-import SmallProductCard from "../card-variants/SmallProductCard";
-import { LineGridProps } from "../../interfaces/componentProps.types";
+} from "../../../services/api";
+import SmallProductCard from "../../card-variants/SmallProductCard";
+import { LineGridProps } from "../../../interfaces/componentProps.types";
 
 const LineGrid: React.FC<LineGridProps> = ({ category, limit, page }) => {
   const { data, error, isLoading } = useQuery({
