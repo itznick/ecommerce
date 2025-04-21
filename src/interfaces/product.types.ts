@@ -6,3 +6,7 @@ export interface ProductCardProps {
   discount: number;
   category?: string;
 }
+
+export interface ProductCardPropsExtended extends ProductCardProps {
+  variant?: "small" | "medium";
+}

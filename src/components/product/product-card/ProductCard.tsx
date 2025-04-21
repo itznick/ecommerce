@@ -3,16 +3,12 @@ import { Card, CardContent, CardHeader } from "../../ui/card";
 import { AppDispatch } from "../../../redux/store";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../../redux/slices/modalSlice";
-import { ProductCardProps } from "../../../interfaces/product.types";
+import { ProductCardPropsExtended } from "../../../interfaces/product.types";
 import { DiscountBadge } from "../../../shared/discount-badge/DiscountBadge";
 
 const getDiscountedPrice = (price: number, discount: number | undefined) => {
   return discount ? Math.round(calculateDiscount(price, discount)) : price;
 };
-
-interface ProductCardPropsExtended extends ProductCardProps {
-  variant?: "small" | "medium";
-}
 
 const ProductCard: React.FC<ProductCardPropsExtended> = ({
   id,

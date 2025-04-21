@@ -1,7 +1,7 @@
-import space from "../../assets/error-404.gif";
-import { Button } from "../../components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { motion } from "framer-motion";
+import error from "../assets/error-404.gif";
+import { Button } from "../components/ui/button";
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const NotFound = () => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <img src={space} alt="Not Found" className="w-72 md:w-96" />
+      <img src={error} alt="Not Found" className="w-72 md:w-96" />
       <h1 className="mt-4 text-2xl font-bold md:text-3xl">
         Oops! Page not found.
       </h1>

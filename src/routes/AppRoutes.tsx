@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "../layout/Layout";
-import NotFound from "../pages/not-found/NotFound";
 import { lazy } from "react";
+import NotFound from "../pages/NotFound";
 
 const Home = lazy(() => import("../pages/Home"));
 const Cart = lazy(() => import("../pages/Cart"));
