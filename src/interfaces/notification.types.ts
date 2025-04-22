@@ -1,5 +1,5 @@
 export interface Notification {
-  id: number;
+  id: string;
   title: string;
   message: string;
   type: "added" | "removed";

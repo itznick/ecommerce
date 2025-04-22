@@ -20,6 +20,7 @@ import { addToCart } from "../../../redux/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { addNotification } from "../../../redux/slices/notificationSlice";
+import { v4 as uuidv4 } from "uuid";
 
 const ProductDetailModal = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -137,7 +138,7 @@ const ProductDetailModal = () => {
                     dispatch(addToCart(data));
                     dispatch(
                       addNotification({
-                        id: data.id,
+                        id: uuidv4(),
                         title: data.title,
                         message: "Added to cart successfully!",
                         type: "added",

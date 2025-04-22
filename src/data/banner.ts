@@ -1,4 +1,5 @@
-import banner1 from "../assets/banner1.jpg";
+import banner1 from "../assets/banner1.png";
+import banner2 from "../assets/banner2.png";
 
 export const banners = [
   {
@@ -9,6 +10,6 @@ export const banners = [
   {
     id: 2,
     title: "Banner 2",
-    url: banner1,
+    url: banner2,
   },
 ];
