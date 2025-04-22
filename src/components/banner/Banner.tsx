@@ -16,11 +16,11 @@ const Banner = () => {
         {banners.map((banner) => (
           <CarouselItem key={banner.id} className="basis-full">
             <div className="px-2 sm:px-4">
-              <Card className="flex justify-center border-none rounded-md shadow-none max-h-96">
+              <Card className="flex justify-center border-none rounded-md shadow-none ">
                 <Img
                   src={[banner.url]}
                   alt={banner.title}
-                  className="object-cover w-full h-auto rounded-md max-h-96"
+                  className="object-cover w-full h-auto rounded-md lg:max-h-96"
                   role="img"
                 />
               </Card>
