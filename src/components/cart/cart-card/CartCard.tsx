@@ -19,7 +19,7 @@ const CartCard = () => {
     dispatch(clearItemFromCart({ id: itemId }));
     dispatch(
       addNotification({
-        id: itemId,
+        id: itemId.toString(),
         title: itemTitle,
         message: "Item removed from cart",
         type: "removed",
