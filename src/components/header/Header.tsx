@@ -92,12 +92,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { SidebarTrigger, useSidebar } from "../ui/sidebar";
 import { useState } from "react";
-import SearchBar from "../../shared/search-bar/SearchBar";
 import { BrandLogo } from "./BrandLogo";
 import { DesktopSearchInput } from "./DesktopSearchInput";
 import { useUser } from "@clerk/clerk-react";
 import { AuthSection } from "./AuthSection";
 import { CartIcon } from "./CartIcon";
+import SearchBar from "../../shared/search/SearchBar";
 
 const Header = () => {
   const { isSignedIn = false } = useUser();
@@ -114,7 +114,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 z-50 flex flex-col items-center w-full bg-white shadow-sm h-14 md:h-16">
       <nav className="flex items-center justify-between w-full h-full px-4 mx-4 md:px-6">
         <BrandLogo />
-        <DesktopSearchInput />
+        <DesktopSearchInput setIsVisible={setIsVisible} />
 
         <div className="flex items-center gap-6 md:gap-4">
           <Search

@@ -1,7 +1,7 @@
 export interface SearchListProps {
-  searchQuery: string;
+  searchQuery?: string;
   classname?: string;
-  setSearchQuery: (query: string) => void;
+  setSearchQuery?: (query: string) => void;
   setIsVisible?: (isVisible: boolean) => void;
 }
 

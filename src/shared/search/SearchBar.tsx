@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Input } from "../ui/input";
 import SearchList from "./SearchList";
 import { useState } from "react";
 import { SearchBarProps } from "../../interfaces/search.types";
+import { Input } from "../../components/ui/input";
 
 const SearchBar = ({ isVisible, setIsVisible }: SearchBarProps) => {
   const [searchQuery, setSearchQuery] = useState("");

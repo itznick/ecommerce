@@ -31,9 +31,9 @@ const SearchList = ({
   }, [searchQuery]);
 
   const filtered = useMemo(() => {
-    if (!data || !debouncedQuery.trim()) return [];
+    if (!data || !debouncedQuery?.trim()) return [];
 
-    const lowercasedQuery = debouncedQuery.toLowerCase();
+    const lowercasedQuery = debouncedQuery?.toLowerCase();
 
     return data.filter((product) => {
       const title = product.title?.toLowerCase() || "";
@@ -118,7 +118,7 @@ const SearchList = ({
                 key={product.id}
                 data-index={index}
                 onClick={() => {
-                  setSearchQuery("");
+                  setSearchQuery?.("");
                   dispatch(openModal(product.id));
                   setIsVisible?.(false);
                 }}
@@ -142,7 +142,7 @@ const SearchList = ({
               className="p-3 text-center text-blue-600 text-sm hover:underline cursor-pointer"
               onClick={() => {
                 navigate("/category/all");
-                setSearchQuery("");
+                setSearchQuery?.("");
               }}
             >
               View all results →
