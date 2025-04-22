@@ -120,6 +120,7 @@ const SearchList = ({
                 onClick={() => {
                   setSearchQuery("");
                   dispatch(openModal(product.id));
+                  setIsVisible?.(false);
                 }}
                 className={`flex items-center gap-3 p-3 cursor-pointer text-sm sm:text-base transition-colors ${
                   index === activeIndex ? "bg-gray-100" : "hover:bg-gray-50"
