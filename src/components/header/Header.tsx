@@ -111,7 +111,7 @@ const Header = () => {
       : "w-10 h-10 mt-2 ml-1 text-black border md:hidden";
 
   return (
-    <header className="fixed top-0 left-0 z-40 flex flex-col items-center w-full bg-white shadow-sm h-14 md:h-16">
+    <header className="fixed top-0 left-0 z-50 flex flex-col items-center w-full bg-white shadow-sm h-14 md:h-16">
       <nav className="flex items-center justify-between w-full h-full px-4 mx-4 md:px-6">
         <BrandLogo />
         <DesktopSearchInput />
@@ -127,7 +127,7 @@ const Header = () => {
           <SidebarTrigger className={showSidebarTrigger} />
         </div>
       </nav>
-      <SearchBar isVisible={isVisible} />
+      <SearchBar isVisible={isVisible} setIsVisible={setIsVisible} />
     </header>
   );
 };

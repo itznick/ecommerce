@@ -1,13 +1,14 @@
 import axios from "axios";
+import { Product } from "../interfaces/product.types";
 
 const api = axios.create({
   baseURL: "https://fakestoreapi.in/api/",
 });
 
-export const fetchAllProducts = async () => {
+export const fetchAllProducts = async (): Promise<Product[]> => {
   try {
-    const response = await api.get("products");
-    return response.data;
+    const response = await api.get("products?limit=150");
+    return response.data.products;
   } catch (error) {
     console.error("Error fetching all products", error);
     throw error;
