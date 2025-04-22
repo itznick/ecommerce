@@ -5,8 +5,9 @@ import App from "./App.tsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "react-redux";
-import { store } from "./redux/store.ts";
+import { persistor, store } from "./redux/store.ts";
 import { SidebarProvider } from "./components/ui/sidebar.tsx";
+import { PersistGate } from "redux-persist/integration/react";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 const queryClient = new QueryClient();
@@ -19,11 +20,13 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <SidebarProvider>
       <Provider store={store}>
-        <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
-          <QueryClientProvider client={queryClient}>
-            <App />
-          </QueryClientProvider>
-        </ClerkProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+            <QueryClientProvider client={queryClient}>
+              <App />
+            </QueryClientProvider>
+          </ClerkProvider>
+        </PersistGate>
       </Provider>
     </SidebarProvider>
   </StrictMode>
