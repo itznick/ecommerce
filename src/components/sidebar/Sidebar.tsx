@@ -22,8 +22,15 @@ import {
 } from "@clerk/clerk-react";
 
 const Sidebar = () => {
-  const { state, open } = useSidebar();
+  const { state, open, isMobile, toggleSidebar } = useSidebar();
   const { isSignedIn, user } = useUser();
+
+  const handleClick = () => {
+    if (isMobile) {
+      toggleSidebar();
+      console.log("isMobile");
+    }
+  };
 
   return (
     <AppSidebar
@@ -53,6 +60,7 @@ const Sidebar = () => {
                     <NavLink
                       to={`/category/${category.title}`}
                       className="flex items-center gap-4 px-4 py-3 rounded-md hover:bg-gray-100"
+                      onClick={handleClick}
                     >
                       <category.icon className="w-8 h-8" />
                       <span className="text-xl capitalize">

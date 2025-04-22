@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { MoveLeft } from "lucide-react";
-import shopping from "../../assets/shopping.png";
+import shopping from "../../../assets/shopping.png";
 
 const EmptyCart = () => {
   const navigate = useNavigate();

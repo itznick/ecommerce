@@ -1,25 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../redux/store";
+import { AppDispatch, RootState } from "../../../redux/store";
 import {
   closeModal,
   selectModalId,
   selectModalOpen,
-} from "../../redux/slices/modalSlice";
+} from "../../../redux/slices/modalSlice";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "../ui/dialog";
+} from "../../ui/dialog";
 import { useQuery } from "@tanstack/react-query";
-import { fetchProductById } from "../../services/api";
-import { calculateDiscount } from "../../utils/discount";
-import { Button } from "../ui/button";
-import { addToCart } from "../../redux/slices/cartSlice";
+import { fetchProductById } from "../../../services/api";
+import { calculateDiscount } from "../../../utils/discount";
+import { Button } from "../../ui/button";
+import { addToCart } from "../../../redux/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
-import { addNotification } from "../../redux/slices/notificationSlice";
+import { addNotification } from "../../../redux/slices/notificationSlice";
 
 const ProductDetailModal = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -45,7 +45,7 @@ const ProductDetailModal = () => {
       open={isOpen}
       onOpenChange={(open) => !open && dispatch(closeModal())}
     >
-      <DialogContent className="flex md:justify-between items-center w-[70vw] z-50 h-[80vh] max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:max-w-[100%] max-lg:rounded-none max-lg:overflow-scroll ">
+      <DialogContent className="flex md:justify-between items-center w-[80vw] z-50 h-[90vh] max-lg:h-full max-lg:w-full max-lg:flex-col max-lg:max-w-[100%] max-lg:rounded-none max-lg:overflow-scroll lg:p-0">
         <DialogHeader>
           {isLoading && (
             <DialogTitle className="text-lg text-center">
@@ -63,7 +63,7 @@ const ProductDetailModal = () => {
                 <img
                   src={data?.image}
                   alt={data?.title}
-                  className="object-contain w-[900px] h-[450px] text-sm max-lg:w-[500px] max-lg:h-[300px] lg:w-[600px] lg:h-[300px]"
+                  className="object-contain w-[900px] h-[450px] text-sm max-lg:w-[500px] max-lg:h-[300px] lg:w-[600px] lg:h-[400px]"
                 />
               </DialogTitle>
               <DialogDescription></DialogDescription>

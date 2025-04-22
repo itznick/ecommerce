@@ -1,30 +1,24 @@
-import CartCard from "../components/cart-card/CartCard";
 import Header from "../components/header/Header";
-import PaymentCard from "../components/payment-card/PaymentCard";
 import { RootState } from "../redux/store";
 import { useSelector } from "react-redux";
-import EmptyCart from "../components/empty-cart/EmptyCart";
+import EmptyCart from "../components/cart/empty-cart/EmptyCart";
+import { CartItems } from "../components/cart/cart-items/CartItems";
+import { PaymentSummary } from "../components/payment/payment-summary/PaymentSummary";
 
 const Cart = () => {
   const { items } = useSelector((state: RootState) => state.cart);
 
   return (
-    <div className="flex flex-col items-center w-full mt-20">
+    <div className="flex flex-col items-center w-full mt-8">
       <Header />
-      <div className="flex">
+      <div className="flex flex-col gap-4 mt-10 max-xl:flex-col">
         {items.length === 0 ? (
           <EmptyCart />
         ) : (
-          <div className="flex justify-between gap-4 max-xl:flex-col">
-            <div>
-              <h1 className="text-lg font-medium">Your Cart</h1>
-              <CartCard />
-            </div>
-            <div>
-              <span className="text-xl font-medium">Payment Summary</span>
-              <PaymentCard />
-            </div>
-          </div>
+          <>
+            <CartItems />
+            <PaymentSummary />
+          </>
         )}
       </div>
     </div>
