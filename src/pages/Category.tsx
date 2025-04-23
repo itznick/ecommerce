@@ -13,7 +13,7 @@ const Category = () => {
   const totalPages = categoryData?.title === "all" ? 3 : 1;
 
   return (
-    <div className="flex-1 px-2 py-2 pr-5 h-full">
+    <div className="flex-1 px-2 py-2 h-full">
       <div className="flex items-center gap-2 mb-2">
         <h2 className="flex items-center justify-center gap-2 text-xl font-semibold text-gray-800 uppercase">
           {categoryData?.icon && (
