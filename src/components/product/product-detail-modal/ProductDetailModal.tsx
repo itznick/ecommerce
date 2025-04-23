@@ -21,12 +21,15 @@ import { useNavigate } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { addNotification } from "../../../redux/slices/notificationSlice";
 import { v4 as uuidv4 } from "uuid";
+import { useAuth, useClerk } from "@clerk/clerk-react";
 
 const ProductDetailModal = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isOpen = useSelector(selectModalOpen);
   const productId = useSelector(selectModalId);
   const navigate = useNavigate();
+  const { isSignedIn, userId } = useAuth();
+  const clerk = useClerk();
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
@@ -40,6 +43,24 @@ const ProductDetailModal = () => {
   if (!isOpen) return null;
 
   const isInCart = cartItems.some((item) => item.id === data?.id);
+
+  const handleAddToCart = () => {
+    if (!isSignedIn || !userId) {
+      dispatch(closeModal());
+      clerk.openSignIn();
+      return;
+    }
+
+    dispatch(addToCart(data));
+    dispatch(
+      addNotification({
+        id: uuidv4(),
+        title: data.title,
+        message: "Added to cart successfully!",
+        type: "added",
+      })
+    );
+  };
 
   return (
     <Dialog
@@ -120,7 +141,7 @@ const ProductDetailModal = () => {
               </span>
             </div>
             <div className="mt-2">
-              {isInCart ? (
+              {isInCart && isSignedIn ? (
                 <Button
                   className="bg-green-500 cursor-pointer hover:bg-green-700"
                   onClick={() => {
@@ -134,17 +155,7 @@ const ProductDetailModal = () => {
               ) : (
                 <Button
                   className="bg-orange-500 cursor-pointer hover:bg-orange-700"
-                  onClick={() => {
-                    dispatch(addToCart(data));
-                    dispatch(
-                      addNotification({
-                        id: uuidv4(),
-                        title: data.title,
-                        message: "Added to cart successfully!",
-                        type: "added",
-                      })
-                    );
-                  }}
+                  onClick={handleAddToCart}
                 >
                   <ShoppingCart />
                   Add to Cart
