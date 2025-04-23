@@ -143,6 +143,7 @@ const SearchList = ({
               onClick={() => {
                 navigate("/category/all");
                 setSearchQuery?.("");
+                setIsVisible?.(false);
               }}
             >
               View all results →
