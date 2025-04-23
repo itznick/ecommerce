@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { MoveLeft } from "lucide-react";
 import shopping from "../../../assets/shopping.png";
+import { Button } from "../../ui/button";
 
 const EmptyCart = () => {
   const navigate = useNavigate();
@@ -16,13 +17,13 @@ const EmptyCart = () => {
       <p className="mt-2 text-gray-500">
         Looks like you haven't added anything yet.
       </p>
-      <button
+      <Button
         className="flex items-center justify-between gap-2 px-2 py-2 mt-4 text-white transition bg-orange-600 rounded-lg cursor-pointer hover:bg-orange-700"
         onClick={() => navigate("/")}
       >
         <MoveLeft />
         Continue Shopping
-      </button>
+      </Button>
     </div>
   );
 };
