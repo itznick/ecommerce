@@ -24,7 +24,7 @@ const Cart = () => {
         ) : (
           <>
             <Button
-              className="flex items-center justify-between gap-2 px-4 py-3 text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-all duration-300 mx-auto mt-2"
+              className="flex items-center justify-between gap-2 px-4 py-3 text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-all duration-200 mx-auto mt-3"
               onClick={() => navigate("/")}
             >
               <MoveLeft />
