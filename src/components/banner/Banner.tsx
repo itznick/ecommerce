@@ -8,6 +8,7 @@ import {
 } from "../ui/carousel";
 import { banners } from "../../data/banner";
 import { Img } from "react-image";
+import BannerSkeleton from "./BannerSkeleton";
 
 const Banner = () => {
   return (
@@ -22,6 +23,7 @@ const Banner = () => {
                   alt={banner.title}
                   className="object-cover w-full h-auto rounded-md lg:max-h-96"
                   role="img"
+                  loader={<BannerSkeleton />}
                 />
               </Card>
             </div>
